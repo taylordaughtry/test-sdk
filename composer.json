@@ -1,0 +1,21 @@
+{
+    "name": "happycog/osborne-api-plugin",
+    "description": "Craft 3 plugin to interface with the Osborne Wood ERP API",
+    "type": "craft-plugin",
+    "require": {
+        "php": ">= 7",
+        "craftcms/cms": "^3.3",
+        "craftcms/commerce": "^2.2",
+        "guzzlehttp/guzzle": "~6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "HappyCog\\OsborneApi\\": "src/"
+        }
+    },
+    "extra": {
+        "handle": "osborne-api-plugin",
+        "name": "Osborne API Plugin",
+        "documentationUrl": "https://github.com/happycog/osborne-api-plugin/blob/master/README.md"
+    }
+}
