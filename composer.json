@@ -4,18 +4,37 @@
     "type": "craft-plugin",
     "require": {
         "php": ">= 7",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
         "craftcms/cms": "^3.3",
         "craftcms/commerce": "^2.2",
-        "guzzlehttp/guzzle": "~6.0"
+        "guzzlehttp/guzzle": "^6.4"
+    },
+    "require-dev": {
+        "two-thirds/laravel-test-suite": "^4.1",
+        "two-thirds/artisan-anywhere": "^1.2",
+        "phpunit/phpunit": "^8.4",
+        "friendsofphp/php-cs-fixer": "^2.16",
+        "laravel/tinker": "^1.0",
+        "vlucas/phpdotenv": "^3.6",
+        "mockery/mockery": "^1.2"
     },
     "autoload": {
         "psr-4": {
-            "HappyCog\\OsborneApi\\": "src/"
+            "HappyCog\\OsborneApi\\": "src/",
+            "HappyCog\\OsborneApi\\ErpService\\": "generated/ErpService/src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "HappyCog\\Tests\\": "tests/",
+            "HappyCog\\OsborneApi\\ErpService\\": "tests/Fixtures/Generated"
         }
     },
     "extra": {
-        "handle": "osborne-api-plugin",
         "name": "Osborne API Plugin",
+        "handle": "osborne-api-plugin",
         "documentationUrl": "https://github.com/happycog/osborne-api-plugin/blob/master/README.md"
     }
 }

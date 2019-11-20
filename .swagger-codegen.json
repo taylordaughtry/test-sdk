@@ -1,0 +1,6 @@
+{
+    "variableNamingConvention": "camelCase",
+    "invokerPackage": "HappyCog\\OsborneApi\\ErpService",
+    "packagePath": "ErpService",
+    "srcBasePath": "src"
+}
