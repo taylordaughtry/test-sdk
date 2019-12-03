@@ -1,12 +1,12 @@
 <p align="center"><img src="./src/logo.png" width="300" alt="Osborne Wood Logo"></p>
 
-<h1 align="center">Osborne Api Plugin</h1>
+<h1 align="center">Osborne API SDK</h1>
 
-Craft 3 plugin to interface with the Osborne Wood ERP API.
+PHP SDK for the Osborne Wood ERP API.
 
 ## Requirements
 
-This plugin requires Craft CMS 3.3.0 or later as well as Craft Commerce 2.2.0 or later.
+This SDK requires PHP 7.0 or greater
 
 ## API Specs
 
@@ -20,17 +20,15 @@ Because this repository is private, it is not registered on Packagist. You will 
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/happycog/osborne-api-plugin.git"
+      "url": "https://github.com/happycog/osborne-api-sdk.git"
     }
   ]
 ```
 
-Then, use composer to require the most recent version of the plugin and install it in craft
+Then, use composer to require the most recent version of the SDK.
 
 ```bash
-composer require happycog/osborne-api-plugin
-
-./craft install/plugin osborne-api-plugin
+composer require happycog/osborne-api-sdk
 ```
 
 ## Code Generation
@@ -39,27 +37,19 @@ This library uses code generated with [Swagger Codegen](https://swagger.io/tools
 
 ### Production Client
 
-Client code is generated from [https://api.swaggerhub.com/apis/jordan-hoff/osborne_erp_service_api/1.0.3](https://app.swaggerhub.com/apis/jordan-hoff/osborne_erp_service_api/1.0.3). To re-generate, remove the `generated` folder and run the `generate-client.sh` script:
+Client code is generated from [https://api.swaggerhub.com/apis/jordan-hoff/osborne_erp_service_api/x.x.x](https://app.swaggerhub.com/apis/jordan-hoff/osborne_erp_service_api). To re-generate, run the `generate-client.sh` script. This script will automatically use the latest version of the api.
 
 ```bash
-rm -rf ./generated
-
 ./generate-client.sh
 ```
 
-Note: If the schema version is updated, the `generate-client.sh` script needs to be updated accordingly.
-
 ### Unit Test Fixtures
 
-Similar to the client code, there are test fixtures generated from [https://api.swaggerhub.com/apis/jordan-hoff/test_fixtures/1.0.0](https://app.swaggerhub.com/apis/jordan-hoff/test_fixtures/1.0.0). To re-generate, remove the `tests/Fixtures/Generated` folder and run the `generate-fixtures.sh` script:
+Similar to the client code, there are test fixtures generated from [https://api.swaggerhub.com/apis/jordan-hoff/test_fixtures/1.0.0](https://app.swaggerhub.com/apis/jordan-hoff/test_fixtures/1.0.0). To re-generate, run the `generate-fixtures.sh` script. This script will automatically use the latest version of the api.
 
 ```bash
-rm -rf ./tests/Fixtures/Generated
-
 ./generate-fixtures.sh
 ```
-
-Note: If the schema version is updated, the `generate-fixtures.sh` script needs to be updated accordingly.
 
 ## Usage
 
@@ -167,3 +157,13 @@ use HappyCog\OsborneApi\ErpService\Model\Customer;
 Customer::destroy(123);
 ```
 
+#### Nested resources
+
+TODO more documentation
+
+Generally, any nested resources are supported as well using the same syntax:
+
+```php
+// Returns a collection of shipping addresses
+Customer::find(123)->shippingAddresses;
+```

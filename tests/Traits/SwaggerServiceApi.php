@@ -15,7 +15,7 @@ trait SwaggerServiceApi
         parent::setUp();
 
         $config = new Configuration();
-        $config->setHost(getenv('SWAGGER_SERVICE_API_URL'));
+        $config->setHost('https://virtserver.swaggerhub.com/jordan-hoff/osborne_erp_service_api/1.0.5');
 
         Factory::setConfig($config);
     }
