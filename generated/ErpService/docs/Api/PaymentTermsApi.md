@@ -4,21 +4,19 @@ All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**paymentTermsGet**](PaymentTermsApi.md#paymenttermsget) | **GET** /payment-terms | Get a list of Payment Terms
-[**paymentTermsPaymentTermIdGet**](PaymentTermsApi.md#paymenttermspaymenttermidget) | **GET** /payment-terms/{paymentTermId} | Get info about a Payment Term
+[**paymentTermsGet**](PaymentTermsApi.md#paymentTermsGet) | **GET** /payment-terms | Used for initial import only  Get a list of Payment Terms
+[**paymentTermsPaymentTermIdGet**](PaymentTermsApi.md#paymentTermsPaymentTermIdGet) | **GET** /payment-terms/{paymentTermId} | Used for initial import only  Get info about a Payment Term
+
 
 # **paymentTermsGet**
 > \HappyCog\OsborneApi\ErpService\Model\PaymentTerm[] paymentTermsGet()
 
-Get a list of Payment Terms
+Used for initial import only  Get a list of Payment Terms
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\PaymentTermsApi(
@@ -58,15 +56,12 @@ This endpoint does not need any parameter.
 # **paymentTermsPaymentTermIdGet**
 > \HappyCog\OsborneApi\ErpService\Model\PaymentTerm paymentTermsPaymentTermIdGet($paymentTermId)
 
-Get info about a Payment Term
+Used for initial import only  Get info about a Payment Term
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\PaymentTermsApi(

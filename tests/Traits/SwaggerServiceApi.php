@@ -3,7 +3,7 @@
 namespace HappyCog\Tests\Traits;
 
 use HappyCog\OsborneApi\ErpService\Configuration;
-use HappyCog\OsborneApi\Resources\Base\ApiClientFactory;
+use HappyCog\OsborneApi\Resources\Base\ApiClient\Factory;
 
 trait SwaggerServiceApi
 {
@@ -17,6 +17,6 @@ trait SwaggerServiceApi
         $config = new Configuration();
         $config->setHost(getenv('SWAGGER_SERVICE_API_URL'));
 
-        ApiClientFactory::setConfig($config);
+        Factory::setConfig($config);
     }
 }

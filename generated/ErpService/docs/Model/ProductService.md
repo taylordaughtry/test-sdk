@@ -19,5 +19,6 @@ Name | Type | Description | Notes
 **hasDimensionImpact** | **bool** |  | [optional] [default to true]
 **isTaxable** | **bool** |  | [optional] [default to true]
 
-[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

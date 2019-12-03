@@ -4,8 +4,9 @@ All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**shippingCarriersGet**](ShippingCarriersApi.md#shippingcarriersget) | **GET** /shipping-carriers | Get a list of Shipping Carriers
-[**shippingCarriersShippingCarrierIdGet**](ShippingCarriersApi.md#shippingcarriersshippingcarrieridget) | **GET** /shipping-carriers/{shippingCarrierId} | Get info about a Shipping Carrier
+[**shippingCarriersGet**](ShippingCarriersApi.md#shippingCarriersGet) | **GET** /shipping-carriers | Get a list of Shipping Carriers
+[**shippingCarriersShippingCarrierIdGet**](ShippingCarriersApi.md#shippingCarriersShippingCarrierIdGet) | **GET** /shipping-carriers/{shippingCarrierId} | Get info about a Shipping Carrier
+
 
 # **shippingCarriersGet**
 > \HappyCog\OsborneApi\ErpService\Model\ShippingCarrier[] shippingCarriersGet()
@@ -16,9 +17,6 @@ Get a list of Shipping Carriers
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\ShippingCarriersApi(
@@ -64,9 +62,6 @@ Get info about a Shipping Carrier
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\ShippingCarriersApi(

@@ -4,10 +4,12 @@ All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**materialsGet**](MaterialsApi.md#materialsget) | **GET** /materials | Get a list of Materials
-[**materialsMaterialIdDisclaimersGet**](MaterialsApi.md#materialsmaterialiddisclaimersget) | **GET** /materials/{materialId}/disclaimers | Get a list of Material Disclaimers
-[**materialsMaterialIdGet**](MaterialsApi.md#materialsmaterialidget) | **GET** /materials/{materialId} | Get info about a Material
-[**materialsMaterialIdImageGet**](MaterialsApi.md#materialsmaterialidimageget) | **GET** /materials/{materialId}/image | Get a Material Image
+[**materialsGet**](MaterialsApi.md#materialsGet) | **GET** /materials | Get a list of Materials
+[**materialsMaterialIdDisclaimersGet**](MaterialsApi.md#materialsMaterialIdDisclaimersGet) | **GET** /materials/{materialId}/disclaimers | Get a list of Material Disclaimers
+[**materialsMaterialIdGet**](MaterialsApi.md#materialsMaterialIdGet) | **GET** /materials/{materialId} | Get info about a Material
+[**materialsMaterialIdImagesGet**](MaterialsApi.md#materialsMaterialIdImagesGet) | **GET** /materials/{materialId}/images | Get a list of Material Images
+[**materialsMaterialIdImagesMaterialImageIdGet**](MaterialsApi.md#materialsMaterialIdImagesMaterialImageIdGet) | **GET** /materials/{materialId}/images/{materialImageId} | Get info about a Material Image
+
 
 # **materialsGet**
 > \HappyCog\OsborneApi\ErpService\Model\Material[] materialsGet()
@@ -18,9 +20,6 @@ Get a list of Materials
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\MaterialsApi(
@@ -66,9 +65,6 @@ Get a list of Material Disclaimers
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\MaterialsApi(
@@ -118,9 +114,6 @@ Get info about a Material
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\MaterialsApi(
@@ -161,18 +154,15 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **materialsMaterialIdImageGet**
-> \HappyCog\OsborneApi\ErpService\Model\MaterialImage materialsMaterialIdImageGet($materialId)
+# **materialsMaterialIdImagesGet**
+> \HappyCog\OsborneApi\ErpService\Model\MaterialImage[] materialsMaterialIdImagesGet($materialId)
 
-Get a Material Image
+Get a list of Material Images
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\MaterialsApi(
@@ -184,10 +174,10 @@ $apiInstance = new HappyCog\OsborneApi\ErpService\Api\MaterialsApi(
 $materialId = 56; // int | Material Id
 
 try {
-    $result = $apiInstance->materialsMaterialIdImageGet($materialId);
+    $result = $apiInstance->materialsMaterialIdImagesGet($materialId);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling MaterialsApi->materialsMaterialIdImageGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling MaterialsApi->materialsMaterialIdImagesGet: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -197,6 +187,57 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **materialId** | **int**| Material Id |
+
+### Return type
+
+[**\HappyCog\OsborneApi\ErpService\Model\MaterialImage[]**](../Model/MaterialImage.md)
+
+### Authorization
+
+[bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **materialsMaterialIdImagesMaterialImageIdGet**
+> \HappyCog\OsborneApi\ErpService\Model\MaterialImage materialsMaterialIdImagesMaterialImageIdGet($materialId, $materialImageId)
+
+Get info about a Material Image
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$apiInstance = new HappyCog\OsborneApi\ErpService\Api\MaterialsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$materialId = 56; // int | Material Id
+$materialImageId = 56; // int | Material Image Id
+
+try {
+    $result = $apiInstance->materialsMaterialIdImagesMaterialImageIdGet($materialId, $materialImageId);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MaterialsApi->materialsMaterialIdImagesMaterialImageIdGet: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **materialId** | **int**| Material Id |
+ **materialImageId** | **int**| Material Image Id |
 
 ### Return type
 

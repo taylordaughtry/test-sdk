@@ -2,23 +2,31 @@
 
 set -e
 
-# generate the initial codebase from the swagger specs
-swagger-codegen generate \
-    -i https://api.swaggerhub.com/apis/jordan-hoff/osborne_erp_service_api/1.0.3 \
-    -l php \
-    -o ./generated \
-    -c .swagger-codegen.json
+COMMAND="swagger-codegen"
 
-# All Api classes should extend a base class for additional customization
-cd generated/ErpService/src/Api
-egrep -rl '^class [A-Za-z]+$' * | xargs -I@ sed -E -i '' 's/^class ([A-Za-z]+)$/class \1 extends \\HappyCog\\OsborneApi\\Resources\\Base\\ApiClient/g' @
+if [[ "$@" == "--debug" ]]; then
+    COMMAND="swagger-codegen-debug"
+fi
 
-# All Model classes should extend a base class for additional customization
-cd ../Model
-egrep -rl '^class [A-Za-z]+' * | xargs -I@ sed -E -i '' 's/^class ([A-Za-z]+)/class \1 extends \\HappyCog\\OsborneApi\\Resources\\Base\\Model/g' @
+rm -rf ./generated
+
+LATEST=`curl https://api.swaggerhub.com/apis/jordan-hoff/osborne_erp_service_api | jq -r '.apis[-1].properties[] | select(.type=="Swagger") | .url'`
+
+# generate the initial codebase from the latest availabe swagger specs
+$COMMAND generate \
+    --input-spec $LATEST \
+    --template-dir ./codegen-template \
+    --template-engine mustache \
+    --lang php \
+    --output ./generated \
+    -D "variableNamingConvention=camelCase, \
+        invokerPackage=HappyCog\\OsborneApi\\ErpService, \
+        packagePath=ErpService, \
+        srcBasePath=src"
+
+cd generated/ErpService
 
 # Cleanup the additional scaffolding that swagger-codegen creates
-cd ../../
 rm -rf test/
 rm -f \
     .php_cs \

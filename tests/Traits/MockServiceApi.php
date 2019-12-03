@@ -12,7 +12,7 @@ use GuzzleHttp\Handler\MockHandler;
 use Psr\Http\Message\RequestInterface;
 use HappyCog\OsborneApi\ErpService\Configuration;
 use HappyCog\Tests\Exceptions\MockServiceApiException;
-use HappyCog\OsborneApi\Resources\Base\ApiClientFactory;
+use HappyCog\OsborneApi\Resources\Base\ApiClient\Factory;
 
 trait MockServiceApi
 {
@@ -54,12 +54,12 @@ trait MockServiceApi
             }
         };
 
-        ApiClientFactory::setHttpClient($this->mockedClient);
+        Factory::setHttpClient($this->mockedClient);
 
         $config = new Configuration();
         $config->setHost($this->mockHostUrl);
 
-        ApiClientFactory::setConfig($config);
+        Factory::setConfig($config);
     }
 
     /**

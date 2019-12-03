@@ -4,21 +4,19 @@ All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**disclaimersDisclaimerIdGet**](DisclaimersApi.md#disclaimersdisclaimeridget) | **GET** /disclaimers/{disclaimerId} | Get info about a Disclaimer
-[**disclaimersGet**](DisclaimersApi.md#disclaimersget) | **GET** /disclaimers | Get a list of Disclaimers
+[**disclaimersDisclaimerIdGet**](DisclaimersApi.md#disclaimersDisclaimerIdGet) | **GET** /disclaimers/{disclaimerId} | Used for initial import only  Get info about a Disclaimer
+[**disclaimersGet**](DisclaimersApi.md#disclaimersGet) | **GET** /disclaimers | Used for initial import only  Get a list of Disclaimers
+
 
 # **disclaimersDisclaimerIdGet**
 > \HappyCog\OsborneApi\ErpService\Model\Disclaimer disclaimersDisclaimerIdGet($disclaimerId)
 
-Get info about a Disclaimer
+Used for initial import only  Get info about a Disclaimer
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\DisclaimersApi(
@@ -62,15 +60,12 @@ Name | Type | Description  | Notes
 # **disclaimersGet**
 > \HappyCog\OsborneApi\ErpService\Model\Disclaimer[] disclaimersGet()
 
-Get a list of Disclaimers
+Used for initial import only  Get a list of Disclaimers
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\DisclaimersApi(

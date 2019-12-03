@@ -9,10 +9,11 @@ Name | Type | Description | Notes
 **parentId** | **int** |  | [optional] 
 **enabled** | **bool** |  | [optional] [default to true]
 **showChildren** | **bool** |  | [optional] [default to true]
-**seoTitle** | **string** | Used for initial import only | [optional] 
-**seoKeywords** | **string** | Used for initial import only | [optional] 
-**seoDescription** | **string** | Used for initial import only | [optional] 
-**webFriendlyName** | **string** | Used for initial import only | [optional] 
+**seoTitle** | **string** |  | [optional] 
+**seoKeywords** | **string** |  | [optional] 
+**seoDescription** | **string** |  | [optional] 
+**webFriendlyName** | **string** |  | [optional] 
 
-[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

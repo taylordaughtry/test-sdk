@@ -35,7 +35,7 @@ composer require happycog/osborne-api-plugin
 
 ## Code Generation
 
-This library uses code generated with [Swagger Codegen](https://swagger.io/tools/swagger-codegen/). There are two scripts included to generate both the production client as well as unit test fixtures.
+This library uses code generated with [Swagger Codegen](https://swagger.io/tools/swagger-codegen/). Make sure it's installed on your machine along with [jq](https://stedolan.github.io/jq/). There are two scripts included to generate both the production client as well as unit test fixtures.
 
 ### Production Client
 

@@ -4,22 +4,24 @@ All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**productsGet**](ProductsApi.md#productsget) | **GET** /products | Get a list of all Products
-[**productsProductIdCategoriesGet**](ProductsApi.md#productsproductidcategoriesget) | **GET** /products/{productId}/categories | Get a list of Categories that belong to a Product
-[**productsProductIdCustomersGet**](ProductsApi.md#productsproductidcustomersget) | **GET** /products/{productId}/customers | Get a list of Customers that can order this Product
-[**productsProductIdDisclaimersGet**](ProductsApi.md#productsproductiddisclaimersget) | **GET** /products/{productId}/disclaimers | Get a list of Product Disclaimers
-[**productsProductIdDrawingsGet**](ProductsApi.md#productsproductiddrawingsget) | **GET** /products/{productId}/drawings | Get a list of Product Drawings
-[**productsProductIdDrawingsProductDrawingIdGet**](ProductsApi.md#productsproductiddrawingsproductdrawingidget) | **GET** /products/{productId}/drawings/{productDrawingId} | Get info about a Product Drawing
-[**productsProductIdGet**](ProductsApi.md#productsproductidget) | **GET** /products/{productId} | Get info about a Product
-[**productsProductIdImageGet**](ProductsApi.md#productsproductidimageget) | **GET** /products/{productId}/image | Get a Product Image
-[**productsProductIdMaterialsGet**](ProductsApi.md#productsproductidmaterialsget) | **GET** /products/{productId}/materials | Get a list of Materials related directly to a Product
-[**productsProductIdMaterialsProductMaterialIdGet**](ProductsApi.md#productsproductidmaterialsproductmaterialidget) | **GET** /products/{productId}/materials/{productMaterialId} | Get info about a Product Material
-[**productsProductIdMaterialsProductMaterialIdImageGet**](ProductsApi.md#productsproductidmaterialsproductmaterialidimageget) | **GET** /products/{productId}/materials/{productMaterialId}/image | Get a Product Material Image
-[**productsProductIdMaterialsProductMaterialIdMaterialsGet**](ProductsApi.md#productsproductidmaterialsproductmaterialidmaterialsget) | **GET** /products/{productId}/materials/{productMaterialId}/materials | Get a list of Sub Materials related to a Product Material
-[**productsProductIdPromotionsGet**](ProductsApi.md#productsproductidpromotionsget) | **GET** /products/{productId}/promotions | Get a list of Promotions for a Product
-[**productsProductIdRelatedProductsGet**](ProductsApi.md#productsproductidrelatedproductsget) | **GET** /products/{productId}/related-products | Get a list of Products for a Product
-[**productsProductIdServicesGet**](ProductsApi.md#productsproductidservicesget) | **GET** /products/{productId}/services | Get a list of Product Services
-[**productsProductIdServicesProductServiceIdGet**](ProductsApi.md#productsproductidservicesproductserviceidget) | **GET** /products/{productId}/services/{productServiceId} | Get info about a Product Service
+[**productsGet**](ProductsApi.md#productsGet) | **GET** /products | Get a list of all Products
+[**productsProductIdCategoriesGet**](ProductsApi.md#productsProductIdCategoriesGet) | **GET** /products/{productId}/categories | Used for initial import only  Get a list of Categories that belong to a Product
+[**productsProductIdCustomersGet**](ProductsApi.md#productsProductIdCustomersGet) | **GET** /products/{productId}/customers | Used for initial import only  Get a list of Customers that can order this Product
+[**productsProductIdDisclaimersGet**](ProductsApi.md#productsProductIdDisclaimersGet) | **GET** /products/{productId}/disclaimers | Used for initial import only  Get a list of Product Disclaimers
+[**productsProductIdDrawingsGet**](ProductsApi.md#productsProductIdDrawingsGet) | **GET** /products/{productId}/drawings | Get a list of Product Drawings
+[**productsProductIdDrawingsProductDrawingIdGet**](ProductsApi.md#productsProductIdDrawingsProductDrawingIdGet) | **GET** /products/{productId}/drawings/{productDrawingId} | Get info about a Product Drawing
+[**productsProductIdGet**](ProductsApi.md#productsProductIdGet) | **GET** /products/{productId} | Get info about a Product
+[**productsProductIdImagesGet**](ProductsApi.md#productsProductIdImagesGet) | **GET** /products/{productId}/images | Used for initial import only  Get a list of Product Images
+[**productsProductIdImagesProductImageIdGet**](ProductsApi.md#productsProductIdImagesProductImageIdGet) | **GET** /products/{productId}/images/{productImageId} | Used for initial import only  Get info about a Product Image
+[**productsProductIdMaterialsGet**](ProductsApi.md#productsProductIdMaterialsGet) | **GET** /products/{productId}/materials | Get a list of Materials related directly to a Product
+[**productsProductIdMaterialsProductMaterialIdGet**](ProductsApi.md#productsProductIdMaterialsProductMaterialIdGet) | **GET** /products/{productId}/materials/{productMaterialId} | Get info about a Product Material
+[**productsProductIdMaterialsProductMaterialIdImagesGet**](ProductsApi.md#productsProductIdMaterialsProductMaterialIdImagesGet) | **GET** /products/{productId}/materials/{productMaterialId}/images | Used for initial import only  Get a list of Product Material Images
+[**productsProductIdMaterialsProductMaterialIdImagesProductMaterialImageIdGet**](ProductsApi.md#productsProductIdMaterialsProductMaterialIdImagesProductMaterialImageIdGet) | **GET** /products/{productId}/materials/{productMaterialId}/images/{productMaterialImageId} | Used for initial import only  Get info about a Product Material Image
+[**productsProductIdMaterialsProductMaterialIdMaterialsGet**](ProductsApi.md#productsProductIdMaterialsProductMaterialIdMaterialsGet) | **GET** /products/{productId}/materials/{productMaterialId}/materials | Get a list of Sub Materials related to a Product Material
+[**productsProductIdPromotionsGet**](ProductsApi.md#productsProductIdPromotionsGet) | **GET** /products/{productId}/promotions | Used for initial import only  Get a list of Promotions for a Product
+[**productsProductIdServicesGet**](ProductsApi.md#productsProductIdServicesGet) | **GET** /products/{productId}/services | Get a list of Product Services
+[**productsProductIdServicesProductServiceIdGet**](ProductsApi.md#productsProductIdServicesProductServiceIdGet) | **GET** /products/{productId}/services/{productServiceId} | Get info about a Product Service
+
 
 # **productsGet**
 > \HappyCog\OsborneApi\ErpService\Model\Product[] productsGet()
@@ -30,9 +32,6 @@ Get a list of all Products
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\ProductsApi(
@@ -72,15 +71,12 @@ This endpoint does not need any parameter.
 # **productsProductIdCategoriesGet**
 > \HappyCog\OsborneApi\ErpService\Model\ProductCategory[] productsProductIdCategoriesGet($productId)
 
-Get a list of Categories that belong to a Product
+Used for initial import only  Get a list of Categories that belong to a Product
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\ProductsApi(
@@ -124,15 +120,12 @@ Name | Type | Description  | Notes
 # **productsProductIdCustomersGet**
 > \HappyCog\OsborneApi\ErpService\Model\Customer[] productsProductIdCustomersGet($productId)
 
-Get a list of Customers that can order this Product
+Used for initial import only  Get a list of Customers that can order this Product
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\ProductsApi(
@@ -176,15 +169,12 @@ Name | Type | Description  | Notes
 # **productsProductIdDisclaimersGet**
 > \HappyCog\OsborneApi\ErpService\Model\Disclaimer[] productsProductIdDisclaimersGet($productId)
 
-Get a list of Product Disclaimers
+Used for initial import only  Get a list of Product Disclaimers
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\ProductsApi(
@@ -234,9 +224,6 @@ Get a list of Product Drawings
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\ProductsApi(
@@ -286,9 +273,6 @@ Get info about a Product Drawing
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\ProductsApi(
@@ -340,9 +324,6 @@ Get info about a Product
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\ProductsApi(
@@ -383,18 +364,15 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **productsProductIdImageGet**
-> \HappyCog\OsborneApi\ErpService\Model\ProductImage productsProductIdImageGet($productId)
+# **productsProductIdImagesGet**
+> \HappyCog\OsborneApi\ErpService\Model\ProductImage[] productsProductIdImagesGet($productId)
 
-Get a Product Image
+Used for initial import only  Get a list of Product Images
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\ProductsApi(
@@ -406,10 +384,10 @@ $apiInstance = new HappyCog\OsborneApi\ErpService\Api\ProductsApi(
 $productId = 56; // int | Product Id
 
 try {
-    $result = $apiInstance->productsProductIdImageGet($productId);
+    $result = $apiInstance->productsProductIdImagesGet($productId);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ProductsApi->productsProductIdImageGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ProductsApi->productsProductIdImagesGet: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -419,6 +397,57 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **productId** | **int**| Product Id |
+
+### Return type
+
+[**\HappyCog\OsborneApi\ErpService\Model\ProductImage[]**](../Model/ProductImage.md)
+
+### Authorization
+
+[bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **productsProductIdImagesProductImageIdGet**
+> \HappyCog\OsborneApi\ErpService\Model\ProductImage productsProductIdImagesProductImageIdGet($productId, $productImageId)
+
+Used for initial import only  Get info about a Product Image
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$apiInstance = new HappyCog\OsborneApi\ErpService\Api\ProductsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$productId = 56; // int | Product Id
+$productImageId = 56; // int | Product Image Id
+
+try {
+    $result = $apiInstance->productsProductIdImagesProductImageIdGet($productId, $productImageId);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ProductsApi->productsProductIdImagesProductImageIdGet: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **productId** | **int**| Product Id |
+ **productImageId** | **int**| Product Image Id |
 
 ### Return type
 
@@ -444,9 +473,6 @@ Get a list of Materials related directly to a Product
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\ProductsApi(
@@ -496,9 +522,6 @@ Get info about a Product Material
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\ProductsApi(
@@ -541,18 +564,15 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **productsProductIdMaterialsProductMaterialIdImageGet**
-> \HappyCog\OsborneApi\ErpService\Model\ProductMaterialImage productsProductIdMaterialsProductMaterialIdImageGet($productId, $productMaterialId)
+# **productsProductIdMaterialsProductMaterialIdImagesGet**
+> \HappyCog\OsborneApi\ErpService\Model\ProductMaterialImage[] productsProductIdMaterialsProductMaterialIdImagesGet($productId, $productMaterialId)
 
-Get a Product Material Image
+Used for initial import only  Get a list of Product Material Images
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\ProductsApi(
@@ -565,10 +585,10 @@ $productId = 56; // int | Product Id
 $productMaterialId = 56; // int | Product Material Id
 
 try {
-    $result = $apiInstance->productsProductIdMaterialsProductMaterialIdImageGet($productId, $productMaterialId);
+    $result = $apiInstance->productsProductIdMaterialsProductMaterialIdImagesGet($productId, $productMaterialId);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ProductsApi->productsProductIdMaterialsProductMaterialIdImageGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ProductsApi->productsProductIdMaterialsProductMaterialIdImagesGet: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -579,6 +599,59 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **productId** | **int**| Product Id |
  **productMaterialId** | **int**| Product Material Id |
+
+### Return type
+
+[**\HappyCog\OsborneApi\ErpService\Model\ProductMaterialImage[]**](../Model/ProductMaterialImage.md)
+
+### Authorization
+
+[bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **productsProductIdMaterialsProductMaterialIdImagesProductMaterialImageIdGet**
+> \HappyCog\OsborneApi\ErpService\Model\ProductMaterialImage productsProductIdMaterialsProductMaterialIdImagesProductMaterialImageIdGet($productId, $productMaterialId, $productMaterialImageId)
+
+Used for initial import only  Get info about a Product Material Image
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$apiInstance = new HappyCog\OsborneApi\ErpService\Api\ProductsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$productId = 56; // int | Product Id
+$productMaterialId = 56; // int | Product Material Id
+$productMaterialImageId = 56; // int | Product Material Image Id
+
+try {
+    $result = $apiInstance->productsProductIdMaterialsProductMaterialIdImagesProductMaterialImageIdGet($productId, $productMaterialId, $productMaterialImageId);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ProductsApi->productsProductIdMaterialsProductMaterialIdImagesProductMaterialImageIdGet: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **productId** | **int**| Product Id |
+ **productMaterialId** | **int**| Product Material Id |
+ **productMaterialImageId** | **int**| Product Material Image Id |
 
 ### Return type
 
@@ -604,9 +677,6 @@ Get a list of Sub Materials related to a Product Material
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\ProductsApi(
@@ -652,15 +722,12 @@ Name | Type | Description  | Notes
 # **productsProductIdPromotionsGet**
 > \HappyCog\OsborneApi\ErpService\Model\Promotion[] productsProductIdPromotionsGet($productId)
 
-Get a list of Promotions for a Product
+Used for initial import only  Get a list of Promotions for a Product
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\ProductsApi(
@@ -701,58 +768,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **productsProductIdRelatedProductsGet**
-> \HappyCog\OsborneApi\ErpService\Model\Product[] productsProductIdRelatedProductsGet($productId)
-
-Get a list of Products for a Product
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new HappyCog\OsborneApi\ErpService\Api\ProductsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$productId = 56; // int | Product Id
-
-try {
-    $result = $apiInstance->productsProductIdRelatedProductsGet($productId);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ProductsApi->productsProductIdRelatedProductsGet: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **productId** | **int**| Product Id |
-
-### Return type
-
-[**\HappyCog\OsborneApi\ErpService\Model\Product[]**](../Model/Product.md)
-
-### Authorization
-
-[bearerAuth](../../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
 # **productsProductIdServicesGet**
 > \HappyCog\OsborneApi\ErpService\Model\ProductService[] productsProductIdServicesGet($productId)
 
@@ -762,9 +777,6 @@ Get a list of Product Services
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\ProductsApi(
@@ -814,9 +826,6 @@ Get info about a Product Service
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\ProductsApi(

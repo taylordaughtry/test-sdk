@@ -12,9 +12,10 @@ Name | Type | Description | Notes
 **shippingCarrierId** | **int** |  | [optional] 
 **buyingGroupId** | **int** |  | [optional] 
 **freightTermsId** | **int** |  | [optional] 
-**paymentTermsId** | **int** |  | [optional] 
-**taxZoneId** | **int** |  | [optional] 
-**taxExempt** | **bool** |  | [optional] [default to false]
+**paymentTermId** | **int** | Used for initial import only | [optional] 
+**taxZone** | **string** | Used for initial import only | [optional] 
+**taxExempt** | **bool** | Used for initial import only | [optional] [default to false]
 
-[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

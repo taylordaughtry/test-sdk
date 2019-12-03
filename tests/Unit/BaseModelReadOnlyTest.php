@@ -1,10 +1,11 @@
 <?php
 
-namespace HappyCog\Tests\Integration;
+namespace HappyCog\Tests\Unit;
 
 use HappyCog\Tests\TestCase;
 use HappyCog\Tests\Traits\MockServiceApi;
 use HappyCog\OsborneApi\ErpService\Model\Device;
+use HappyCog\OsborneApi\Resources\Base\Collection;
 use HappyCog\OsborneApi\Resources\Exceptions\BadResourceMethodException;
 
 class BaseModelReadOnlyTest extends TestCase
@@ -32,7 +33,7 @@ class BaseModelReadOnlyTest extends TestCase
 
         $devices = Device::all();
 
-        $this->assertIsArray($devices);
+        $this->assertInstanceOf(Collection::class, $devices);
         $this->assertEquals(2, count($devices));
         $this->assertInstanceOf(Device::class, $devices[0]);
         $this->assertInstanceOf(Device::class, $devices[1]);

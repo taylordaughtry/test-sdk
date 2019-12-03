@@ -1,6 +1,6 @@
 <?php
 
-namespace HappyCog\Tests\Integration;
+namespace HappyCog\Tests\Unit;
 
 use HappyCog\Tests\TestCase;
 use HappyCog\Tests\Traits\MockServiceApi;

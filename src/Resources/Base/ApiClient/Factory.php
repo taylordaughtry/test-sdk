@@ -1,13 +1,21 @@
 <?php
 
-namespace HappyCog\OsborneApi\Resources\Base;
+namespace HappyCog\OsborneApi\Resources\Base\ApiClient;
 
 use Illuminate\Support\Str;
 use GuzzleHttp\ClientInterface;
+use HappyCog\OsborneApi\Resources\Base\Model;
 use HappyCog\OsborneApi\ErpService\Configuration;
 
-class ApiClientFactory
+class Factory
 {
+    /**
+     * The namespace where ApiClient instances can be found
+     *
+     * @var string
+     */
+    protected static $apiNamespace = 'HappyCog\\OsborneApi\\ErpService\\Api\\';
+
     /**
      * The configuration to use when connecting to the ERP Service
      *
@@ -31,7 +39,7 @@ class ApiClientFactory
      */
     public static function create(string $name)
     {
-        $class = 'HappyCog\\OsborneApi\\ErpService\\Api\\' . Str::plural($name) . 'Api';
+        $class = static::$apiNamespace . Str::plural($name) . 'Api';
 
         return new $class(static::$httpClient, static::$config);
     }

@@ -4,9 +4,10 @@ All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**staffAccountGet**](StaffAccountApi.md#staffaccountget) | **GET** /staff-account | Get a list of Staff Accounts
-[**staffAccountStaffAccountIdGet**](StaffAccountApi.md#staffaccountstaffaccountidget) | **GET** /staff-account/{staffAccountId} | Get info about a Staff Account
-[**staffAccountStaffAccountIdPermissionsGet**](StaffAccountApi.md#staffaccountstaffaccountidpermissionsget) | **GET** /staff-account/{staffAccountId}/permissions | Get a list of Permissions for a Staff Account
+[**staffAccountGet**](StaffAccountApi.md#staffAccountGet) | **GET** /staff-account | Get a list of Staff Accounts
+[**staffAccountStaffAccountIdGet**](StaffAccountApi.md#staffAccountStaffAccountIdGet) | **GET** /staff-account/{staffAccountId} | Get info about a Staff Account
+[**staffAccountStaffAccountIdPermissionsGet**](StaffAccountApi.md#staffAccountStaffAccountIdPermissionsGet) | **GET** /staff-account/{staffAccountId}/permissions | Get a list of Permissions for a Staff Account
+
 
 # **staffAccountGet**
 > \HappyCog\OsborneApi\ErpService\Model\StaffAccount[] staffAccountGet()
@@ -17,9 +18,6 @@ Get a list of Staff Accounts
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\StaffAccountApi(
@@ -65,9 +63,6 @@ Get info about a Staff Account
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\StaffAccountApi(
@@ -117,9 +112,6 @@ Get a list of Permissions for a Staff Account
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\StaffAccountApi(

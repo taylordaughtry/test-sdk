@@ -2,23 +2,31 @@
 
 set -e
 
+COMMAND="swagger-codegen"
+
+if [[ "$@" == "--debug" ]]; then
+    COMMAND="swagger-codegen-debug"
+fi
+
+rm -rf ./tests/Fixtures/Generated
+
+LATEST=`curl https://api.swaggerhub.com/apis/jordan-hoff/test_fixtures | jq -r '.apis[-1].properties[] | select(.type=="Swagger") | .url'`
+
 # generate the testing fixtures from the swagger specs
-swagger-codegen generate \
-    -i https://api.swaggerhub.com/apis/jordan-hoff/test_fixtures/1.0.0 \
-    -l php \
-    -o ./tests \
-    -c .swagger-codegen-fixtures.json
+$COMMAND generate \
+    --input-spec $LATEST \
+    --template-dir ./codegen-template \
+    --template-engine mustache \
+    --lang php \
+    --output ./tests \
+    -D "variableNamingConvention=camelCase, \
+        invokerPackage=HappyCog\\OsborneApi\\ErpService, \
+        packagePath=Fixtures, \
+        srcBasePath=Generated"
 
-# All Api classes should extend a base class for additional customization
-cd tests/Fixtures/Generated/Api
-egrep -rl '^class [A-Za-z]+$' * | xargs -I@ sed -E -i '' 's/^class ([A-Za-z]+)$/class \1 extends \\HappyCog\\OsborneApi\\Resources\\Base\\ApiClient/g' @
-
-# All Model classes should extend a base class for additional customization
-cd ../Model
-egrep -rl '^class [A-Za-z]+' * | xargs -I@ sed -E -i '' 's/^class ([A-Za-z]+)/class \1 extends \\HappyCog\\OsborneApi\\Resources\\Base\\Model/g' @
+cd tests/Fixtures
 
 # Cleanup the additional scaffolding that swagger-codegen creates
-cd ../../
 rm -rf test/ \
     docs/
 rm -f \

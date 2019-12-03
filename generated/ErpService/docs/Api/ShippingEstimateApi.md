@@ -4,7 +4,8 @@ All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**shippingEstimatePost**](ShippingEstimateApi.md#shippingestimatepost) | **POST** /shipping-estimate | Create a shipping estimate based on in progress Order information
+[**shippingEstimatePost**](ShippingEstimateApi.md#shippingEstimatePost) | **POST** /shipping-estimate | Create a shipping estimate based on in progress Order information
+
 
 # **shippingEstimatePost**
 > \HappyCog\OsborneApi\ErpService\Model\ShippingEstimate shippingEstimatePost($body)
@@ -15,9 +16,6 @@ Create a shipping estimate based on in progress Order information
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\ShippingEstimateApi(

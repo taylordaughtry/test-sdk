@@ -1,10 +1,11 @@
 <?php
 
-namespace HappyCog\Tests\Integration;
+namespace HappyCog\Tests\Unit;
 
 use HappyCog\Tests\TestCase;
 use HappyCog\Tests\Traits\MockServiceApi;
 use HappyCog\OsborneApi\ErpService\Model\Gizmo;
+use HappyCog\OsborneApi\Resources\Base\Collection;
 
 class BaseModelCrudTest extends TestCase
 {
@@ -31,7 +32,7 @@ class BaseModelCrudTest extends TestCase
 
         $gizmos = Gizmo::all();
 
-        $this->assertIsArray($gizmos);
+        $this->assertInstanceOf(Collection::class, $gizmos);
         $this->assertEquals(2, count($gizmos));
         $this->assertInstanceOf(Gizmo::class, $gizmos[0]);
         $this->assertInstanceOf(Gizmo::class, $gizmos[1]);
@@ -66,7 +67,7 @@ class BaseModelCrudTest extends TestCase
     }
 
     /** @test */
-    public function createsAGizmoFoo()
+    public function createsAGizmoBySaving()
     {
         $this->shouldCall('post', '/gizmos', [
                 'name' => 'foobar',
@@ -169,7 +170,7 @@ class BaseModelCrudTest extends TestCase
         $gizmo = Gizmo::find(123);
         $this->assertInstanceOf(Gizmo::class, $gizmo);
 
-        $this->shouldCall('delete', '/gizmos/123/delete')
+        $this->shouldCall('delete', '/gizmos/123')
             ->returning([
                 'success' => true,
             ]);
@@ -184,7 +185,7 @@ class BaseModelCrudTest extends TestCase
     /** @test */
     public function destroyAGizmoStatically()
     {
-        $this->shouldCall('delete', '/gizmos/123/delete')
+        $this->shouldCall('delete', '/gizmos/123')
             ->returning([
                 'success' => true,
             ]);

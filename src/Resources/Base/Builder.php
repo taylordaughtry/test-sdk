@@ -2,27 +2,29 @@
 
 namespace HappyCog\OsborneApi\Resources\Base;
 
+use ReflectionClass;
 use Illuminate\Support\Str;
 use HappyCog\OsborneApi\Resources\Base\Model;
-use HappyCog\OsborneApi\Resources\Base\ApiClientFactory;
+use HappyCog\OsborneApi\Resources\Base\Collection;
+use HappyCog\OsborneApi\Resources\Base\ApiClient\Factory;
 use HappyCog\OsborneApi\Resources\Exceptions\BadResourceMethodException;
 use HappyCog\OsborneApi\Resources\Exceptions\InvalidModelOperationException;
 
 class Builder
 {
     /**
-     * The API client used to fetch models
-     *
-     * @var HappyCog\OsborneApi\Resources\Base\ApiClient
-     */
-    protected $client;
-
-    /**
-     * The model instance that we are building against
+     * The base model for all operations
      *
      * @var HappyCog\OsborneApi\Resources\Base\Model
      */
     protected $model;
+
+    /**
+     * The api client to create requests against
+     *
+     * @var \HappyCog\OsborneApi\Resources\Base\ApiClient
+     */
+    protected $client;
 
     /**
      * Create a new model builder
@@ -32,138 +34,85 @@ class Builder
     public function __construct(Model $model)
     {
         $this->model = $model;
-        $this->client = ApiClientFactory::create($this->model->baseClassName());
+        $this->client = Factory::create((new ReflectionClass($model))->getShortName());
     }
 
     /**
-     * Get a list of resources
+     * Determine if the request exists for the provided path
      *
-     * @return array
+     * @param string $path
+     * @param string $action
+     *
+     * @return boolean
      */
-    public function all()
+    public function canRequest(string $path, string $action)
     {
-        return $this->request('index');
+        return $this->client->hasOperation($path, $action);
     }
 
     /**
-     * Find a resource by Id
+     * Gets the request type for the provided operation path
      *
-     * @param int $id
+     * @param string $path
+     * @param string $action
      *
-     * @return mixed
+     * @return string
      */
-    public function find(int $id)
+    public function getRequestType(string $path, string $action)
     {
-        return $this->request('show', $id);
-    }
-
-    /**
-     * Create a resource
-     *
-     * @param array|null $attributes
-     *
-     * @return mixed
-     */
-    public function create(array $attributes = null)
-    {
-        if (! empty($attributes)) {
-            $this->model->fill($attributes);
-        }
-
-        return $this->model->hydrate(
-            $this->request('store', $this->model)
-        );
-    }
-
-    /**
-     * Update a resource
-     *
-     * @param int $id
-     * @param array $attributes
-     *
-     * @return mixed
-     */
-    public function update()
-    {
-        return $this->model->hydrate(
-            $this->request('update', $this->model->id, $this->model)
-        );
-    }
-
-    /**
-     * Delete a resource
-     *
-     * @param int $id
-     *
-     * @return array
-     */
-    public function delete(int $id)
-    {
-        $this->model->exists = false;
-
-        return (array) $this->request('destroy', $id);
+        return $this->client->getRequestType($path, $action);
     }
 
     /**
      * Craft a Request to the api
      *
+     * @param string $path
      * @param string $action
      * @param array ...$input
      *
      * @return mixed
      */
-    protected function request(string $action, ...$input)
+    public function request(string $path, string $action, ...$input)
     {
-        $method = $this->getMethodName($action);
-
-        if (! method_exists($this->client, $method)) {
+        if (! $this->canRequest($path, $action)) {
             $called = debug_backtrace(null, 2)[1]['function'];
-            throw new BadResourceMethodException('Error: Call to undefined "' . $called . '" method on ' . get_class($this->model));
+            throw new BadResourceMethodException('Error: Call to undefined "' . $called . '" on ' . get_class($this->model) . ' (' . $path . ':' . $action . ')');
         }
 
-        return $this->markModelExists(
-            call_user_func_array([$this->client, $method], $input)
-        );
+        if (class_exists($requestType = $this->getRequestType($path, $action))) {
+            if (! end($input) instanceof $requestType) {
+                $input[] = new $requestType(array_pop($input));
+            }
+        }
+
+        $response = $this->client->getOperation($path, $action, ...$input);
+
+        if ($action === 'index') {
+            $response = Collection::wrap($response)->setPath($path);
+        }
+
+        return $this->prepare($response, $path);
     }
 
     /**
      * Recursively mark any models as existing if they were returned by the API
      *
      * @param mixed $response
+     * @param string $path
      *
      * @return mixed
      */
-    protected function markModelExists($response)
+    protected function prepare($response, string $path)
     {
-        if (is_array($response)) {
+        if ($response instanceof Collection) {
             foreach ($response as $index => $value) {
-                $response[$index] = $this->markModelExists($value);
+                $response[$index] = $this->prepare($value, $path);
             }
         } elseif ($response instanceof Model) {
             $response->exists = true;
+            $response->setPath($path);
         }
 
         return $response;
-    }
-
-    /**
-     * Gets the method name for the provided action
-     *
-     * @param string $action
-     *
-     * @return string
-     */
-    protected function getMethodName(string $action)
-    {
-        $singular = $this->model->baseClassName();
-        $plural = Str::plural($singular);
-
-        return Str::camel([
-            'index' => "{$plural}Get",
-            'show' => "{$plural}{$singular}IdGet",
-            'store' => "{$plural}Post",
-            'update' => "{$plural}{$singular}IdPut",
-            'destroy' => "{$plural}{$singular}IdDeleteDelete",
-        ][$action]);
     }
 }

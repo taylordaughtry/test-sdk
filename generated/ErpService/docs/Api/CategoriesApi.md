@@ -4,22 +4,21 @@ All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**categoriesCategoryIdGet**](CategoriesApi.md#categoriescategoryidget) | **GET** /categories/{categoryId} | Get info about a Category
-[**categoriesCategoryIdImageGet**](CategoriesApi.md#categoriescategoryidimageget) | **GET** /categories/{categoryId}/image | Get a Category Image
-[**categoriesGet**](CategoriesApi.md#categoriesget) | **GET** /categories | Get a list of top level Categories
+[**categoriesCategoryIdGet**](CategoriesApi.md#categoriesCategoryIdGet) | **GET** /categories/{categoryId} | Used for initial import only  Get info about a Category
+[**categoriesCategoryIdImagesCategoryImageIdGet**](CategoriesApi.md#categoriesCategoryIdImagesCategoryImageIdGet) | **GET** /categories/{categoryId}/images/{categoryImageId} | Used for initial import only  Get info about a Category Image
+[**categoriesCategoryIdImagesGet**](CategoriesApi.md#categoriesCategoryIdImagesGet) | **GET** /categories/{categoryId}/images | Used for initial import only  Get a list of Category Images
+[**categoriesGet**](CategoriesApi.md#categoriesGet) | **GET** /categories | Used for initial import only  Get a list of top level Categories
+
 
 # **categoriesCategoryIdGet**
 > \HappyCog\OsborneApi\ErpService\Model\Category categoriesCategoryIdGet($categoryId)
 
-Get info about a Category
+Used for initial import only  Get info about a Category
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\CategoriesApi(
@@ -60,18 +59,15 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **categoriesCategoryIdImageGet**
-> \HappyCog\OsborneApi\ErpService\Model\CategoryImage categoriesCategoryIdImageGet($categoryId)
+# **categoriesCategoryIdImagesCategoryImageIdGet**
+> \HappyCog\OsborneApi\ErpService\Model\CategoryImage categoriesCategoryIdImagesCategoryImageIdGet($categoryId, $categoryImageId)
 
-Get a Category Image
+Used for initial import only  Get info about a Category Image
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\CategoriesApi(
@@ -81,12 +77,13 @@ $apiInstance = new HappyCog\OsborneApi\ErpService\Api\CategoriesApi(
     $config
 );
 $categoryId = 56; // int | Category Id
+$categoryImageId = 56; // int | Category Image Id
 
 try {
-    $result = $apiInstance->categoriesCategoryIdImageGet($categoryId);
+    $result = $apiInstance->categoriesCategoryIdImagesCategoryImageIdGet($categoryId, $categoryImageId);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CategoriesApi->categoriesCategoryIdImageGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CategoriesApi->categoriesCategoryIdImagesCategoryImageIdGet: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -96,6 +93,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **categoryId** | **int**| Category Id |
+ **categoryImageId** | **int**| Category Image Id |
 
 ### Return type
 
@@ -112,18 +110,64 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **categoriesGet**
-> \HappyCog\OsborneApi\ErpService\Model\Category[] categoriesGet()
+# **categoriesCategoryIdImagesGet**
+> \HappyCog\OsborneApi\ErpService\Model\CategoryImage[] categoriesCategoryIdImagesGet($categoryId)
 
-Get a list of top level Categories
+Used for initial import only  Get a list of Category Images
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new HappyCog\OsborneApi\ErpService\Api\CategoriesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$categoryId = 56; // int | Category Id
+
+try {
+    $result = $apiInstance->categoriesCategoryIdImagesGet($categoryId);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CategoriesApi->categoriesCategoryIdImagesGet: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **categoryId** | **int**| Category Id |
+
+### Return type
+
+[**\HappyCog\OsborneApi\ErpService\Model\CategoryImage[]**](../Model/CategoryImage.md)
+
+### Authorization
+
+[bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **categoriesGet**
+> \HappyCog\OsborneApi\ErpService\Model\Category[] categoriesGet()
+
+Used for initial import only  Get a list of top level Categories
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\CategoriesApi(

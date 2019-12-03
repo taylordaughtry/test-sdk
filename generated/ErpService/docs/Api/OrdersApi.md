@@ -4,40 +4,40 @@ All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ordersGet**](OrdersApi.md#ordersget) | **GET** /orders | Get a list of Orders
-[**ordersOrderIdDeleteDelete**](OrdersApi.md#ordersorderiddeletedelete) | **DELETE** /orders/{orderId}/delete | Delete a Order
-[**ordersOrderIdFilesGet**](OrdersApi.md#ordersorderidfilesget) | **GET** /orders/{orderId}/files | Get a list of Files attached to an Order
-[**ordersOrderIdFilesOrderFileIdDeleteDelete**](OrdersApi.md#ordersorderidfilesorderfileiddeletedelete) | **DELETE** /orders/{orderId}/files/{orderFileId}/delete | Delete a File for an Order
-[**ordersOrderIdFilesOrderFileIdGet**](OrdersApi.md#ordersorderidfilesorderfileidget) | **GET** /orders/{orderId}/files/{orderFileId} | Get info about a File for an Order
-[**ordersOrderIdFilesPost**](OrdersApi.md#ordersorderidfilespost) | **POST** /orders/{orderId}/files | Create a new File for an Order
-[**ordersOrderIdGet**](OrdersApi.md#ordersorderidget) | **GET** /orders/{orderId} | Get info about a Order
-[**ordersOrderIdLinesGet**](OrdersApi.md#ordersorderidlinesget) | **GET** /orders/{orderId}/lines | Get a list of Lines for an Order
-[**ordersOrderIdLinesOrderLineIdDeleteDelete**](OrdersApi.md#ordersorderidlinesorderlineiddeletedelete) | **DELETE** /orders/{orderId}/lines/{orderLineId}/delete | Delete a Line for an Order
-[**ordersOrderIdLinesOrderLineIdGet**](OrdersApi.md#ordersorderidlinesorderlineidget) | **GET** /orders/{orderId}/lines/{orderLineId} | Get info about a Line for an Order
-[**ordersOrderIdLinesOrderLineIdPut**](OrdersApi.md#ordersorderidlinesorderlineidput) | **PUT** /orders/{orderId}/lines/{orderLineId} | Update a Line for an Order
-[**ordersOrderIdLinesOrderLineIdServicesAppliedProductServiceIdDeleteDelete**](OrdersApi.md#ordersorderidlinesorderlineidservicesappliedproductserviceiddeletedelete) | **DELETE** /orders/{orderId}/lines/{orderLineId}/services/{appliedProductServiceId}/delete | Delete an Applied Product Service for an Order Line
-[**ordersOrderIdLinesOrderLineIdServicesAppliedProductServiceIdGet**](OrdersApi.md#ordersorderidlinesorderlineidservicesappliedproductserviceidget) | **GET** /orders/{orderId}/lines/{orderLineId}/services/{appliedProductServiceId} | Get info about an Applied Product Service for an Order Line
-[**ordersOrderIdLinesOrderLineIdServicesAppliedProductServiceIdPut**](OrdersApi.md#ordersorderidlinesorderlineidservicesappliedproductserviceidput) | **PUT** /orders/{orderId}/lines/{orderLineId}/services/{appliedProductServiceId} | Update an Applied Product Service for an Order Line
-[**ordersOrderIdLinesOrderLineIdServicesGet**](OrdersApi.md#ordersorderidlinesorderlineidservicesget) | **GET** /orders/{orderId}/lines/{orderLineId}/services | Get a list of Applied Product Services for an Order Line
-[**ordersOrderIdLinesOrderLineIdServicesPost**](OrdersApi.md#ordersorderidlinesorderlineidservicespost) | **POST** /orders/{orderId}/lines/{orderLineId}/services | Create a new Applied Product Service for an Order Line
-[**ordersOrderIdLinesPost**](OrdersApi.md#ordersorderidlinespost) | **POST** /orders/{orderId}/lines | Create a new Line for an Order
-[**ordersOrderIdNotesGet**](OrdersApi.md#ordersorderidnotesget) | **GET** /orders/{orderId}/notes | Get a list of Notes for an Order
-[**ordersOrderIdNotesOrderNoteIdDeleteDelete**](OrdersApi.md#ordersorderidnotesordernoteiddeletedelete) | **DELETE** /orders/{orderId}/notes/{orderNoteId}/delete | Delete a Note for an Order
-[**ordersOrderIdNotesOrderNoteIdGet**](OrdersApi.md#ordersorderidnotesordernoteidget) | **GET** /orders/{orderId}/notes/{orderNoteId} | Get info about a Note for an Order
-[**ordersOrderIdNotesOrderNoteIdPut**](OrdersApi.md#ordersorderidnotesordernoteidput) | **PUT** /orders/{orderId}/notes/{orderNoteId} | Update a Note for an Order
-[**ordersOrderIdNotesPost**](OrdersApi.md#ordersorderidnotespost) | **POST** /orders/{orderId}/notes | Create a new Note for an Order
-[**ordersOrderIdPaymentsGet**](OrdersApi.md#ordersorderidpaymentsget) | **GET** /orders/{orderId}/payments | Get a list of Payments for an Order
-[**ordersOrderIdPaymentsOrderPaymentIdDeleteDelete**](OrdersApi.md#ordersorderidpaymentsorderpaymentiddeletedelete) | **DELETE** /orders/{orderId}/payments/{orderPaymentId}/delete | Delete a Payment for an Order
-[**ordersOrderIdPaymentsOrderPaymentIdGet**](OrdersApi.md#ordersorderidpaymentsorderpaymentidget) | **GET** /orders/{orderId}/payments/{orderPaymentId} | Get info about a Payment for an Order
-[**ordersOrderIdPaymentsOrderPaymentIdPut**](OrdersApi.md#ordersorderidpaymentsorderpaymentidput) | **PUT** /orders/{orderId}/payments/{orderPaymentId} | Update a Payment for an Order
-[**ordersOrderIdPaymentsPost**](OrdersApi.md#ordersorderidpaymentspost) | **POST** /orders/{orderId}/payments | Create a new Payment for an Order
-[**ordersOrderIdPut**](OrdersApi.md#ordersorderidput) | **PUT** /orders/{orderId} | Update a Order
-[**ordersOrderIdServicesAppliedOrderServiceIdDeleteDelete**](OrdersApi.md#ordersorderidservicesappliedorderserviceiddeletedelete) | **DELETE** /orders/{orderId}/services/{appliedOrderServiceId}/delete | Delete an Applied Order Service for an Order
-[**ordersOrderIdServicesAppliedOrderServiceIdGet**](OrdersApi.md#ordersorderidservicesappliedorderserviceidget) | **GET** /orders/{orderId}/services/{appliedOrderServiceId} | Get info about an Applied Order Service for an Order
-[**ordersOrderIdServicesAppliedOrderServiceIdPut**](OrdersApi.md#ordersorderidservicesappliedorderserviceidput) | **PUT** /orders/{orderId}/services/{appliedOrderServiceId} | Update an Applied Order Service for an Order
-[**ordersOrderIdServicesGet**](OrdersApi.md#ordersorderidservicesget) | **GET** /orders/{orderId}/services | Get a list of Applied Order Services for an Order
-[**ordersOrderIdServicesPost**](OrdersApi.md#ordersorderidservicespost) | **POST** /orders/{orderId}/services | Create a new Applied Order Service for an Order
-[**ordersPost**](OrdersApi.md#orderspost) | **POST** /orders | Create a new Order
+[**ordersGet**](OrdersApi.md#ordersGet) | **GET** /orders | Get a list of Orders
+[**ordersOrderIdDelete**](OrdersApi.md#ordersOrderIdDelete) | **DELETE** /orders/{orderId} | Void an Order
+[**ordersOrderIdFilesPost**](OrdersApi.md#ordersOrderIdFilesPost) | **POST** /orders/{orderId}/files | Create a new File for an Order
+[**ordersOrderIdGet**](OrdersApi.md#ordersOrderIdGet) | **GET** /orders/{orderId} | Get info about an Order
+[**ordersOrderIdLinesGet**](OrdersApi.md#ordersOrderIdLinesGet) | **GET** /orders/{orderId}/lines | Get a list of Lines for an Order
+[**ordersOrderIdLinesOrderLineIdDelete**](OrdersApi.md#ordersOrderIdLinesOrderLineIdDelete) | **DELETE** /orders/{orderId}/lines/{orderLineId} | Delete a Line for an Order
+[**ordersOrderIdLinesOrderLineIdGet**](OrdersApi.md#ordersOrderIdLinesOrderLineIdGet) | **GET** /orders/{orderId}/lines/{orderLineId} | Get info about a Line for an Order
+[**ordersOrderIdLinesOrderLineIdPut**](OrdersApi.md#ordersOrderIdLinesOrderLineIdPut) | **PUT** /orders/{orderId}/lines/{orderLineId} | Update a Line for an Order
+[**ordersOrderIdLinesOrderLineIdServicesAppliedProductServiceIdDelete**](OrdersApi.md#ordersOrderIdLinesOrderLineIdServicesAppliedProductServiceIdDelete) | **DELETE** /orders/{orderId}/lines/{orderLineId}/services/{appliedProductServiceId} | Delete an Applied Product Service for an Order Line
+[**ordersOrderIdLinesOrderLineIdServicesAppliedProductServiceIdGet**](OrdersApi.md#ordersOrderIdLinesOrderLineIdServicesAppliedProductServiceIdGet) | **GET** /orders/{orderId}/lines/{orderLineId}/services/{appliedProductServiceId} | Get info about an Applied Product Service for an Order Line
+[**ordersOrderIdLinesOrderLineIdServicesAppliedProductServiceIdPut**](OrdersApi.md#ordersOrderIdLinesOrderLineIdServicesAppliedProductServiceIdPut) | **PUT** /orders/{orderId}/lines/{orderLineId}/services/{appliedProductServiceId} | Update an Applied Product Service for an Order Line
+[**ordersOrderIdLinesOrderLineIdServicesGet**](OrdersApi.md#ordersOrderIdLinesOrderLineIdServicesGet) | **GET** /orders/{orderId}/lines/{orderLineId}/services | Get a list of Applied Product Services for an Order Line
+[**ordersOrderIdLinesOrderLineIdServicesPost**](OrdersApi.md#ordersOrderIdLinesOrderLineIdServicesPost) | **POST** /orders/{orderId}/lines/{orderLineId}/services | Create a new Applied Product Service for an Order Line
+[**ordersOrderIdLinesPost**](OrdersApi.md#ordersOrderIdLinesPost) | **POST** /orders/{orderId}/lines | Create a new Line for an Order
+[**ordersOrderIdNotesGet**](OrdersApi.md#ordersOrderIdNotesGet) | **GET** /orders/{orderId}/notes | Get a list of Notes for an Order
+[**ordersOrderIdNotesOrderNoteIdDelete**](OrdersApi.md#ordersOrderIdNotesOrderNoteIdDelete) | **DELETE** /orders/{orderId}/notes/{orderNoteId} | Delete a Note for an Order
+[**ordersOrderIdNotesOrderNoteIdGet**](OrdersApi.md#ordersOrderIdNotesOrderNoteIdGet) | **GET** /orders/{orderId}/notes/{orderNoteId} | Get info about a Note for an Order
+[**ordersOrderIdNotesOrderNoteIdPut**](OrdersApi.md#ordersOrderIdNotesOrderNoteIdPut) | **PUT** /orders/{orderId}/notes/{orderNoteId} | Update a Note for an Order
+[**ordersOrderIdNotesPost**](OrdersApi.md#ordersOrderIdNotesPost) | **POST** /orders/{orderId}/notes | Create a new Note for an Order
+[**ordersOrderIdPackagesGet**](OrdersApi.md#ordersOrderIdPackagesGet) | **GET** /orders/{orderId}/packages | Get a list of Packages for an Order
+[**ordersOrderIdPackagesOrderPackageIdGet**](OrdersApi.md#ordersOrderIdPackagesOrderPackageIdGet) | **GET** /orders/{orderId}/packages/{orderPackageId} | Get info about a Package for an Order
+[**ordersOrderIdPaymentsGet**](OrdersApi.md#ordersOrderIdPaymentsGet) | **GET** /orders/{orderId}/payments | Get a list of Payments for an Order
+[**ordersOrderIdPaymentsOrderPaymentIdDelete**](OrdersApi.md#ordersOrderIdPaymentsOrderPaymentIdDelete) | **DELETE** /orders/{orderId}/payments/{orderPaymentId} | Delete a Payment for an Order
+[**ordersOrderIdPaymentsOrderPaymentIdGet**](OrdersApi.md#ordersOrderIdPaymentsOrderPaymentIdGet) | **GET** /orders/{orderId}/payments/{orderPaymentId} | Get info about a Payment for an Order
+[**ordersOrderIdPaymentsOrderPaymentIdPut**](OrdersApi.md#ordersOrderIdPaymentsOrderPaymentIdPut) | **PUT** /orders/{orderId}/payments/{orderPaymentId} | Update a Payment for an Order
+[**ordersOrderIdPaymentsPost**](OrdersApi.md#ordersOrderIdPaymentsPost) | **POST** /orders/{orderId}/payments | Create a new Payment for an Order
+[**ordersOrderIdPut**](OrdersApi.md#ordersOrderIdPut) | **PUT** /orders/{orderId} | Update an Order
+[**ordersOrderIdServicesAppliedOrderServiceIdDelete**](OrdersApi.md#ordersOrderIdServicesAppliedOrderServiceIdDelete) | **DELETE** /orders/{orderId}/services/{appliedOrderServiceId} | Delete an Applied Order Service for an Order
+[**ordersOrderIdServicesAppliedOrderServiceIdGet**](OrdersApi.md#ordersOrderIdServicesAppliedOrderServiceIdGet) | **GET** /orders/{orderId}/services/{appliedOrderServiceId} | Get info about an Applied Order Service for an Order
+[**ordersOrderIdServicesAppliedOrderServiceIdPut**](OrdersApi.md#ordersOrderIdServicesAppliedOrderServiceIdPut) | **PUT** /orders/{orderId}/services/{appliedOrderServiceId} | Update an Applied Order Service for an Order
+[**ordersOrderIdServicesGet**](OrdersApi.md#ordersOrderIdServicesGet) | **GET** /orders/{orderId}/services | Get a list of Applied Order Services for an Order
+[**ordersOrderIdServicesPost**](OrdersApi.md#ordersOrderIdServicesPost) | **POST** /orders/{orderId}/services | Create a new Applied Order Service for an Order
+[**ordersPost**](OrdersApi.md#ordersPost) | **POST** /orders | Create a new Order
+
 
 # **ordersGet**
 > \HappyCog\OsborneApi\ErpService\Model\Order[] ordersGet()
@@ -48,9 +48,6 @@ Get a list of Orders
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
@@ -87,18 +84,15 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **ordersOrderIdDeleteDelete**
-> object ordersOrderIdDeleteDelete($orderId)
+# **ordersOrderIdDelete**
+> object ordersOrderIdDelete($orderId)
 
-Delete a Order
+Void an Order
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
@@ -110,10 +104,10 @@ $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
 $orderId = 56; // int | Order Id
 
 try {
-    $result = $apiInstance->ordersOrderIdDeleteDelete($orderId);
+    $result = $apiInstance->ordersOrderIdDelete($orderId);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling OrdersApi->ordersOrderIdDeleteDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling OrdersApi->ordersOrderIdDelete: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -127,166 +121,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 **object**
-
-### Authorization
-
-[bearerAuth](../../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **ordersOrderIdFilesGet**
-> \HappyCog\OsborneApi\ErpService\Model\OrderFile[] ordersOrderIdFilesGet($orderId)
-
-Get a list of Files attached to an Order
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$orderId = 56; // int | Order Id
-
-try {
-    $result = $apiInstance->ordersOrderIdFilesGet($orderId);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling OrdersApi->ordersOrderIdFilesGet: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **orderId** | **int**| Order Id |
-
-### Return type
-
-[**\HappyCog\OsborneApi\ErpService\Model\OrderFile[]**](../Model/OrderFile.md)
-
-### Authorization
-
-[bearerAuth](../../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **ordersOrderIdFilesOrderFileIdDeleteDelete**
-> object ordersOrderIdFilesOrderFileIdDeleteDelete($orderId, $orderFileId)
-
-Delete a File for an Order
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$orderId = 56; // int | Order Id
-$orderFileId = 56; // int | Order File Id
-
-try {
-    $result = $apiInstance->ordersOrderIdFilesOrderFileIdDeleteDelete($orderId, $orderFileId);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling OrdersApi->ordersOrderIdFilesOrderFileIdDeleteDelete: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **orderId** | **int**| Order Id |
- **orderFileId** | **int**| Order File Id |
-
-### Return type
-
-**object**
-
-### Authorization
-
-[bearerAuth](../../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **ordersOrderIdFilesOrderFileIdGet**
-> \HappyCog\OsborneApi\ErpService\Model\OrderFile ordersOrderIdFilesOrderFileIdGet($orderId, $orderFileId)
-
-Get info about a File for an Order
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$orderId = 56; // int | Order Id
-$orderFileId = 56; // int | Order File Id
-
-try {
-    $result = $apiInstance->ordersOrderIdFilesOrderFileIdGet($orderId, $orderFileId);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling OrdersApi->ordersOrderIdFilesOrderFileIdGet: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **orderId** | **int**| Order Id |
- **orderFileId** | **int**| Order File Id |
-
-### Return type
-
-[**\HappyCog\OsborneApi\ErpService\Model\OrderFile**](../Model/OrderFile.md)
 
 ### Authorization
 
@@ -308,9 +142,6 @@ Create a new File for an Order
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
@@ -356,15 +187,12 @@ Name | Type | Description  | Notes
 # **ordersOrderIdGet**
 > \HappyCog\OsborneApi\ErpService\Model\Order ordersOrderIdGet($orderId)
 
-Get info about a Order
+Get info about an Order
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
@@ -414,9 +242,6 @@ Get a list of Lines for an Order
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
@@ -457,8 +282,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **ordersOrderIdLinesOrderLineIdDeleteDelete**
-> object ordersOrderIdLinesOrderLineIdDeleteDelete($orderId, $orderLineId)
+# **ordersOrderIdLinesOrderLineIdDelete**
+> object ordersOrderIdLinesOrderLineIdDelete($orderId, $orderLineId)
 
 Delete a Line for an Order
 
@@ -466,9 +291,6 @@ Delete a Line for an Order
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
@@ -481,10 +303,10 @@ $orderId = 56; // int | Order Id
 $orderLineId = 56; // int | Order Line Id
 
 try {
-    $result = $apiInstance->ordersOrderIdLinesOrderLineIdDeleteDelete($orderId, $orderLineId);
+    $result = $apiInstance->ordersOrderIdLinesOrderLineIdDelete($orderId, $orderLineId);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling OrdersApi->ordersOrderIdLinesOrderLineIdDeleteDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling OrdersApi->ordersOrderIdLinesOrderLineIdDelete: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -520,9 +342,6 @@ Get info about a Line for an Order
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
@@ -574,9 +393,6 @@ Update a Line for an Order
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
@@ -621,8 +437,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **ordersOrderIdLinesOrderLineIdServicesAppliedProductServiceIdDeleteDelete**
-> object ordersOrderIdLinesOrderLineIdServicesAppliedProductServiceIdDeleteDelete($orderId, $orderLineId, $appliedProductServiceId)
+# **ordersOrderIdLinesOrderLineIdServicesAppliedProductServiceIdDelete**
+> object ordersOrderIdLinesOrderLineIdServicesAppliedProductServiceIdDelete($orderId, $orderLineId, $appliedProductServiceId)
 
 Delete an Applied Product Service for an Order Line
 
@@ -630,9 +446,6 @@ Delete an Applied Product Service for an Order Line
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
@@ -646,10 +459,10 @@ $orderLineId = 56; // int | Order Line Id
 $appliedProductServiceId = 56; // int | Applied Product Service Id
 
 try {
-    $result = $apiInstance->ordersOrderIdLinesOrderLineIdServicesAppliedProductServiceIdDeleteDelete($orderId, $orderLineId, $appliedProductServiceId);
+    $result = $apiInstance->ordersOrderIdLinesOrderLineIdServicesAppliedProductServiceIdDelete($orderId, $orderLineId, $appliedProductServiceId);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling OrdersApi->ordersOrderIdLinesOrderLineIdServicesAppliedProductServiceIdDeleteDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling OrdersApi->ordersOrderIdLinesOrderLineIdServicesAppliedProductServiceIdDelete: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -686,9 +499,6 @@ Get info about an Applied Product Service for an Order Line
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
@@ -742,9 +552,6 @@ Update an Applied Product Service for an Order Line
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
@@ -800,9 +607,6 @@ Get a list of Applied Product Services for an Order Line
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
@@ -854,9 +658,6 @@ Create a new Applied Product Service for an Order Line
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
@@ -910,9 +711,6 @@ Create a new Line for an Order
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
@@ -964,9 +762,6 @@ Get a list of Notes for an Order
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
@@ -1007,8 +802,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **ordersOrderIdNotesOrderNoteIdDeleteDelete**
-> object ordersOrderIdNotesOrderNoteIdDeleteDelete($orderId, $orderNoteId)
+# **ordersOrderIdNotesOrderNoteIdDelete**
+> object ordersOrderIdNotesOrderNoteIdDelete($orderId, $orderNoteId)
 
 Delete a Note for an Order
 
@@ -1016,9 +811,6 @@ Delete a Note for an Order
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
@@ -1031,10 +823,10 @@ $orderId = 56; // int | Order Id
 $orderNoteId = 56; // int | Order Note Id
 
 try {
-    $result = $apiInstance->ordersOrderIdNotesOrderNoteIdDeleteDelete($orderId, $orderNoteId);
+    $result = $apiInstance->ordersOrderIdNotesOrderNoteIdDelete($orderId, $orderNoteId);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling OrdersApi->ordersOrderIdNotesOrderNoteIdDeleteDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling OrdersApi->ordersOrderIdNotesOrderNoteIdDelete: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -1070,9 +862,6 @@ Get info about a Note for an Order
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
@@ -1124,9 +913,6 @@ Update a Note for an Order
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
@@ -1180,9 +966,6 @@ Create a new Note for an Order
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
@@ -1225,6 +1008,106 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **ordersOrderIdPackagesGet**
+> \HappyCog\OsborneApi\ErpService\Model\OrderPackage[] ordersOrderIdPackagesGet($orderId)
+
+Get a list of Packages for an Order
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$orderId = 56; // int | Order Id
+
+try {
+    $result = $apiInstance->ordersOrderIdPackagesGet($orderId);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling OrdersApi->ordersOrderIdPackagesGet: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **orderId** | **int**| Order Id |
+
+### Return type
+
+[**\HappyCog\OsborneApi\ErpService\Model\OrderPackage[]**](../Model/OrderPackage.md)
+
+### Authorization
+
+[bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **ordersOrderIdPackagesOrderPackageIdGet**
+> \HappyCog\OsborneApi\ErpService\Model\OrderPackage ordersOrderIdPackagesOrderPackageIdGet($orderId, $orderPackageId)
+
+Get info about a Package for an Order
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$orderId = 56; // int | Order Id
+$orderPackageId = 56; // int | Order Package Id
+
+try {
+    $result = $apiInstance->ordersOrderIdPackagesOrderPackageIdGet($orderId, $orderPackageId);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling OrdersApi->ordersOrderIdPackagesOrderPackageIdGet: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **orderId** | **int**| Order Id |
+ **orderPackageId** | **int**| Order Package Id |
+
+### Return type
+
+[**\HappyCog\OsborneApi\ErpService\Model\OrderPackage**](../Model/OrderPackage.md)
+
+### Authorization
+
+[bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **ordersOrderIdPaymentsGet**
 > \HappyCog\OsborneApi\ErpService\Model\OrderPayment[] ordersOrderIdPaymentsGet($orderId)
 
@@ -1234,9 +1117,6 @@ Get a list of Payments for an Order
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
@@ -1277,8 +1157,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **ordersOrderIdPaymentsOrderPaymentIdDeleteDelete**
-> object ordersOrderIdPaymentsOrderPaymentIdDeleteDelete($orderId, $orderPaymentId)
+# **ordersOrderIdPaymentsOrderPaymentIdDelete**
+> object ordersOrderIdPaymentsOrderPaymentIdDelete($orderId, $orderPaymentId)
 
 Delete a Payment for an Order
 
@@ -1286,9 +1166,6 @@ Delete a Payment for an Order
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
@@ -1301,10 +1178,10 @@ $orderId = 56; // int | Order Id
 $orderPaymentId = 56; // int | Order Payment Id
 
 try {
-    $result = $apiInstance->ordersOrderIdPaymentsOrderPaymentIdDeleteDelete($orderId, $orderPaymentId);
+    $result = $apiInstance->ordersOrderIdPaymentsOrderPaymentIdDelete($orderId, $orderPaymentId);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling OrdersApi->ordersOrderIdPaymentsOrderPaymentIdDeleteDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling OrdersApi->ordersOrderIdPaymentsOrderPaymentIdDelete: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -1340,9 +1217,6 @@ Get info about a Payment for an Order
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
@@ -1394,9 +1268,6 @@ Update a Payment for an Order
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
@@ -1450,9 +1321,6 @@ Create a new Payment for an Order
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
@@ -1498,15 +1366,12 @@ Name | Type | Description  | Notes
 # **ordersOrderIdPut**
 > \HappyCog\OsborneApi\ErpService\Model\Order ordersOrderIdPut($orderId, $body)
 
-Update a Order
+Update an Order
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
@@ -1549,8 +1414,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **ordersOrderIdServicesAppliedOrderServiceIdDeleteDelete**
-> object ordersOrderIdServicesAppliedOrderServiceIdDeleteDelete($orderId, $appliedOrderServiceId)
+# **ordersOrderIdServicesAppliedOrderServiceIdDelete**
+> object ordersOrderIdServicesAppliedOrderServiceIdDelete($orderId, $appliedOrderServiceId)
 
 Delete an Applied Order Service for an Order
 
@@ -1558,9 +1423,6 @@ Delete an Applied Order Service for an Order
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
@@ -1573,10 +1435,10 @@ $orderId = 56; // int | Order Id
 $appliedOrderServiceId = 56; // int | Applied Order Service Id
 
 try {
-    $result = $apiInstance->ordersOrderIdServicesAppliedOrderServiceIdDeleteDelete($orderId, $appliedOrderServiceId);
+    $result = $apiInstance->ordersOrderIdServicesAppliedOrderServiceIdDelete($orderId, $appliedOrderServiceId);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling OrdersApi->ordersOrderIdServicesAppliedOrderServiceIdDeleteDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling OrdersApi->ordersOrderIdServicesAppliedOrderServiceIdDelete: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -1612,9 +1474,6 @@ Get info about an Applied Order Service for an Order
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
@@ -1666,9 +1525,6 @@ Update an Applied Order Service for an Order
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
@@ -1722,9 +1578,6 @@ Get a list of Applied Order Services for an Order
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
@@ -1774,9 +1627,6 @@ Create a new Applied Order Service for an Order
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
@@ -1828,9 +1678,6 @@ Create a new Order
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(

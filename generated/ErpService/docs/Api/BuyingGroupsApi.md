@@ -4,8 +4,9 @@ All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**buyingGroupsBuyingGroupIdGet**](BuyingGroupsApi.md#buyinggroupsbuyinggroupidget) | **GET** /buying-groups/{buyingGroupId} | Get info about a Buying Group
-[**buyingGroupsGet**](BuyingGroupsApi.md#buyinggroupsget) | **GET** /buying-groups | Get a list of Buying Groups
+[**buyingGroupsBuyingGroupIdGet**](BuyingGroupsApi.md#buyingGroupsBuyingGroupIdGet) | **GET** /buying-groups/{buyingGroupId} | Get info about a Buying Group
+[**buyingGroupsGet**](BuyingGroupsApi.md#buyingGroupsGet) | **GET** /buying-groups | Get a list of Buying Groups
+
 
 # **buyingGroupsBuyingGroupIdGet**
 > \HappyCog\OsborneApi\ErpService\Model\BuyingGroup buyingGroupsBuyingGroupIdGet($buyingGroupId)
@@ -16,9 +17,6 @@ Get info about a Buying Group
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\BuyingGroupsApi(
@@ -68,9 +66,6 @@ Get a list of Buying Groups
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearerAuth
-    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\BuyingGroupsApi(
