@@ -2,7 +2,6 @@
 
 namespace HappyCog\OsborneApi\Resources\Base;
 
-use Exception;
 use ReflectionClass;
 use HappyCog\OsborneApi\Resources\Base\ApiClient\Factory;
 
@@ -92,7 +91,7 @@ class Builder
         $response = $this->client->getOperation($path, $action, ...$input);
 
         if ($action === 'index') {
-            $response = Collection::wrap($response)->setPath($path);
+            $response = Collection::wrap($response);
         }
 
         return $this->prepare($response, $path);
@@ -109,6 +108,7 @@ class Builder
     protected function prepare($response, string $path)
     {
         if ($response instanceof Collection) {
+            $response->setPath($path);
             foreach ($response as $index => $value) {
                 $response[$index] = $this->prepare($value, $path);
             }

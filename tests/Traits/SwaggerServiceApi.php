@@ -3,7 +3,6 @@
 namespace HappyCog\Tests\Traits;
 
 use GuzzleHttp\Client;
-use Illuminate\Support\Str;
 use GuzzleHttp\HandlerStack;
 use GuzzleRetry\GuzzleRetryMiddleware;
 use HappyCog\OsborneApi\ErpService\Configuration;

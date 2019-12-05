@@ -131,6 +131,12 @@ abstract class Model
                 );
             }
 
+            if ($this->builder()->canRequest($resource, 'create')) {
+                return $this->adopt(
+                    (new Collection)->setPath($resource)
+                );
+            }
+
             throw new Exception(sprintf(
                 'API does not support listing "%s" on %s',
                 $name,

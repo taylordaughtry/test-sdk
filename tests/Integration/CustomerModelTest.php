@@ -33,18 +33,9 @@ class CustomerModelTest extends TestCase
     }
 
     /** @test */
-    public function serviceApiFindsASpecificCustomer()
-    {
-        $customer = Customer::find(1);
-
-        $this->assertInstanceOf(Customer::class, $customer);
-    }
-
-    /** @test */
     public function serviceApiCreatesCustomers()
     {
         $customer = Customer::create([
-            'id' => 123, // this fixes a bug with prism
             'firstName' => 'John',
             'lastName' => 'Doe',
             'email' => 'jdoe@example.com',
@@ -54,6 +45,14 @@ class CustomerModelTest extends TestCase
             'buyingGroupId' => 34,
             'freightTermsId' => 45,
         ]);
+
+        $this->assertInstanceOf(Customer::class, $customer);
+    }
+
+    /** @test */
+    public function serviceApiFindsASpecificCustomer()
+    {
+        $customer = Customer::find(1);
 
         $this->assertInstanceOf(Customer::class, $customer);
     }
