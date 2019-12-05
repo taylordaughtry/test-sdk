@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **billingAddressId** | **int** |  | [optional] 
 **shippingCarrierId** | **int** |  | [optional] 
 **buyingGroupId** | **int** |  | [optional] 
+**nextBuyingGroupId** | **int** |  | [optional] 
+**nextBuyingGroupGoal** | **int** |  | [optional] 
 **freightTermsId** | **int** |  | [optional] 
 **paymentTermId** | **int** | Used for initial import only | [optional] 
 **taxZone** | **string** | Used for initial import only | [optional] 

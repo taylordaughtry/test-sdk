@@ -65,6 +65,8 @@ class Customer extends \HappyCog\OsborneApi\Resources\Base\Model implements Mode
         'billingAddressId' => 'int',
         'shippingCarrierId' => 'int',
         'buyingGroupId' => 'int',
+        'nextBuyingGroupId' => 'int',
+        'nextBuyingGroupGoal' => 'int',
         'freightTermsId' => 'int',
         'paymentTermId' => 'int',
         'taxZone' => 'string',
@@ -85,6 +87,8 @@ class Customer extends \HappyCog\OsborneApi\Resources\Base\Model implements Mode
         'billingAddressId' => null,
         'shippingCarrierId' => null,
         'buyingGroupId' => null,
+        'nextBuyingGroupId' => null,
+        'nextBuyingGroupGoal' => null,
         'freightTermsId' => null,
         'paymentTermId' => null,
         'taxZone' => null,
@@ -126,6 +130,8 @@ class Customer extends \HappyCog\OsborneApi\Resources\Base\Model implements Mode
         'billingAddressId' => 'billingAddressId',
         'shippingCarrierId' => 'shippingCarrierId',
         'buyingGroupId' => 'buyingGroupId',
+        'nextBuyingGroupId' => 'nextBuyingGroupId',
+        'nextBuyingGroupGoal' => 'nextBuyingGroupGoal',
         'freightTermsId' => 'freightTermsId',
         'paymentTermId' => 'paymentTermId',
         'taxZone' => 'taxZone',
@@ -146,6 +152,8 @@ class Customer extends \HappyCog\OsborneApi\Resources\Base\Model implements Mode
         'billingAddressId' => 'setBillingAddressId',
         'shippingCarrierId' => 'setShippingCarrierId',
         'buyingGroupId' => 'setBuyingGroupId',
+        'nextBuyingGroupId' => 'setNextBuyingGroupId',
+        'nextBuyingGroupGoal' => 'setNextBuyingGroupGoal',
         'freightTermsId' => 'setFreightTermsId',
         'paymentTermId' => 'setPaymentTermId',
         'taxZone' => 'setTaxZone',
@@ -166,6 +174,8 @@ class Customer extends \HappyCog\OsborneApi\Resources\Base\Model implements Mode
         'billingAddressId' => 'getBillingAddressId',
         'shippingCarrierId' => 'getShippingCarrierId',
         'buyingGroupId' => 'getBuyingGroupId',
+        'nextBuyingGroupId' => 'getNextBuyingGroupId',
+        'nextBuyingGroupGoal' => 'getNextBuyingGroupGoal',
         'freightTermsId' => 'getFreightTermsId',
         'paymentTermId' => 'getPaymentTermId',
         'taxZone' => 'getTaxZone',
@@ -240,6 +250,8 @@ class Customer extends \HappyCog\OsborneApi\Resources\Base\Model implements Mode
         $this->container['billingAddressId'] = isset($data['billingAddressId']) ? $data['billingAddressId'] : null;
         $this->container['shippingCarrierId'] = isset($data['shippingCarrierId']) ? $data['shippingCarrierId'] : null;
         $this->container['buyingGroupId'] = isset($data['buyingGroupId']) ? $data['buyingGroupId'] : null;
+        $this->container['nextBuyingGroupId'] = isset($data['nextBuyingGroupId']) ? $data['nextBuyingGroupId'] : null;
+        $this->container['nextBuyingGroupGoal'] = isset($data['nextBuyingGroupGoal']) ? $data['nextBuyingGroupGoal'] : null;
         $this->container['freightTermsId'] = isset($data['freightTermsId']) ? $data['freightTermsId'] : null;
         $this->container['paymentTermId'] = isset($data['paymentTermId']) ? $data['paymentTermId'] : null;
         $this->container['taxZone'] = isset($data['taxZone']) ? $data['taxZone'] : null;
@@ -470,6 +482,54 @@ class Customer extends \HappyCog\OsborneApi\Resources\Base\Model implements Mode
     public function setBuyingGroupId($buyingGroupId)
     {
         $this->container['buyingGroupId'] = $buyingGroupId;
+
+        return $this;
+    }
+
+    /**
+     * Gets nextBuyingGroupId
+     *
+     * @return int
+     */
+    public function getNextBuyingGroupId()
+    {
+        return $this->container['nextBuyingGroupId'];
+    }
+
+    /**
+     * Sets nextBuyingGroupId
+     *
+     * @param int $nextBuyingGroupId nextBuyingGroupId
+     *
+     * @return $this
+     */
+    public function setNextBuyingGroupId($nextBuyingGroupId)
+    {
+        $this->container['nextBuyingGroupId'] = $nextBuyingGroupId;
+
+        return $this;
+    }
+
+    /**
+     * Gets nextBuyingGroupGoal
+     *
+     * @return int
+     */
+    public function getNextBuyingGroupGoal()
+    {
+        return $this->container['nextBuyingGroupGoal'];
+    }
+
+    /**
+     * Sets nextBuyingGroupGoal
+     *
+     * @param int $nextBuyingGroupGoal nextBuyingGroupGoal
+     *
+     * @return $this
+     */
+    public function setNextBuyingGroupGoal($nextBuyingGroupGoal)
+    {
+        $this->container['nextBuyingGroupGoal'] = $nextBuyingGroupGoal;
 
         return $this;
     }
