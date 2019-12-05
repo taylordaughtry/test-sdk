@@ -2,13 +2,9 @@
 
 namespace HappyCog\OsborneApi\Resources\Base;
 
+use Exception;
 use ReflectionClass;
-use Illuminate\Support\Str;
-use HappyCog\OsborneApi\Resources\Base\Model;
-use HappyCog\OsborneApi\Resources\Base\Collection;
 use HappyCog\OsborneApi\Resources\Base\ApiClient\Factory;
-use HappyCog\OsborneApi\Resources\Exceptions\BadResourceMethodException;
-use HappyCog\OsborneApi\Resources\Exceptions\InvalidModelOperationException;
 
 class Builder
 {
@@ -51,6 +47,19 @@ class Builder
     }
 
     /**
+     * Determine if the spec has the named resource
+     *
+     * @param string $path
+     * @param string $action
+     *
+     * @return boolean
+     */
+    public function hasResource(string $resource)
+    {
+        return $this->client->hasResource($resource);
+    }
+
+    /**
      * Gets the request type for the provided operation path
      *
      * @param string $path
@@ -74,11 +83,6 @@ class Builder
      */
     public function request(string $path, string $action, ...$input)
     {
-        if (! $this->canRequest($path, $action)) {
-            $called = debug_backtrace(null, 2)[1]['function'];
-            throw new BadResourceMethodException('Error: Call to undefined "' . $called . '" on ' . get_class($this->model) . ' (' . $path . ':' . $action . ')');
-        }
-
         if (class_exists($requestType = $this->getRequestType($path, $action))) {
             if (! end($input) instanceof $requestType) {
                 $input[] = new $requestType(array_pop($input));

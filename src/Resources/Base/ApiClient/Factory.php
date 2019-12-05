@@ -4,7 +4,6 @@ namespace HappyCog\OsborneApi\Resources\Base\ApiClient;
 
 use Illuminate\Support\Str;
 use GuzzleHttp\ClientInterface;
-use HappyCog\OsborneApi\Resources\Base\Model;
 use HappyCog\OsborneApi\ErpService\Configuration;
 
 class Factory

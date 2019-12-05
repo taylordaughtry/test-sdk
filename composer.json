@@ -16,8 +16,13 @@
         "friendsofphp/php-cs-fixer": "^2.16",
         "laravel/tinker": "^1.0",
         "vlucas/phpdotenv": "^3.6",
-        "mockery/mockery": "^1.2"
+        "mockery/mockery": "^1.2",
+        "phpmd/phpmd": "dev-master",
+        "pdepend/pdepend": "dev-master as 2.5.99",
+        "caseyamcl/guzzle_retry_middleware": "^2.3"
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "autoload": {
         "psr-4": {
             "HappyCog\\OsborneApi\\": "src/",

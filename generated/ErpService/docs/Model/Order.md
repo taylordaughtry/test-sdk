@@ -9,7 +9,8 @@ Name | Type | Description | Notes
 **status** | **string** |  | 
 **scheduledShipDate** | **string** | ISO 8601 format | [optional] 
 **billingAddress** | [**\HappyCog\OsborneApi\ErpService\Model\Address**](Address.md) |  | [optional] 
-**shippingAddress** | [****](.md) |  | [optional] 
+**shippingAddress** | [**\HappyCog\OsborneApi\ErpService\Model\Address**](Address.md) |  | [optional] 
+**shippingDescription** | **string** |  | [optional] 
 **taxZoneId** | **int** |  | [optional] 
 **buyingGroupId** | **int** |  | [optional] 
 **purchaseOrderNumber** | **string** |  | [optional] 

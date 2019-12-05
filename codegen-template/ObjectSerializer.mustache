@@ -44,7 +44,7 @@ class ObjectSerializer
             return $data;
         } elseif ($data instanceof \DateTime) {
             return ($format === 'date') ? $data->format('Y-m-d') : $data->format(\DateTime::ATOM);
-        } elseif (is_array($data)) {
+        } elseif (is_iterable($data)) {
             foreach ($data as $property => $value) {
                 $data[$property] = self::sanitizeForSerialization($value);
             }

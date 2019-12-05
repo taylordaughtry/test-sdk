@@ -31,26 +31,6 @@ Then, use composer to require the most recent version of the SDK.
 composer require happycog/osborne-api-sdk
 ```
 
-## Code Generation
-
-This library uses code generated with [Swagger Codegen](https://swagger.io/tools/swagger-codegen/). Make sure it's installed on your machine along with [jq](https://stedolan.github.io/jq/). There are two scripts included to generate both the production client as well as unit test fixtures.
-
-### Production Client
-
-Client code is generated from [https://api.swaggerhub.com/apis/jordan-hoff/osborne_erp_service_api/x.x.x](https://app.swaggerhub.com/apis/jordan-hoff/osborne_erp_service_api). To re-generate, run the `generate-client.sh` script. This script will automatically use the latest version of the api.
-
-```bash
-./generate-client.sh
-```
-
-### Unit Test Fixtures
-
-Similar to the client code, there are test fixtures generated from [https://api.swaggerhub.com/apis/jordan-hoff/test_fixtures/1.0.0](https://app.swaggerhub.com/apis/jordan-hoff/test_fixtures/1.0.0). To re-generate, run the `generate-fixtures.sh` script. This script will automatically use the latest version of the api.
-
-```bash
-./generate-fixtures.sh
-```
-
 ## Usage
 
 The swagger generated code leaves a little to be desired, so it has been extended to support an interface that is inspired by [Laravel Eloquent](https://laravel.com/docs/5.8/eloquent). This will abstract most of the logic needed to interact with the API, and allows the developer to focus on writing clean, organized code.
@@ -166,4 +146,69 @@ Generally, any nested resources are supported as well using the same syntax:
 ```php
 // Returns a collection of shipping addresses
 Customer::find(123)->shippingAddresses;
+```
+
+## Testing
+
+Unit and Integration tests are available via phpunit for this SDK. Additionally, [php-cs-fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer) and [phpmd](https://phpmd.org/) are used to maintain code quality and consistency.
+
+To run the full test suite, simply run the following command:
+
+```bash
+php artisan test
+```
+
+To run phpunit (optionally) with only the "Unit tests" suite:
+
+```bash
+php artisan test:phpunit --testsuite "Unit Tests"
+```
+
+To run php-cs-fixer and (optionally) automatically fix all issues:
+
+```bash
+php artisan test:php-cs-fixer --fix
+```
+
+To run phpmd:
+
+```bash
+php artisan test:phpmd
+```
+
+### Integration Tests
+
+The integration tests will by default rely on [SwaggerHub Auto Mocking](https://app.swaggerhub.com/help/integrations/api-auto-mocking) which has a rate limit of 10 requests per minute. The test suite will automatically wait and retry when rate limited.
+
+For better performance, it is recommended that you spin up a docker instance of [danielgtaylor/apisprout](https://github.com/danielgtaylor/apisprout) by running the following command ( using the current api spec version ):
+
+```bash
+docker run -d -p 8000:8000 danielgtaylor/apisprout https://api.swaggerhub.com/apis/jordan-hoff/osborne_erp_service_api/1.0.6
+```
+
+Then, you can create a `.env.testing` file that contains the following:
+
+```
+MOCK_AUTH_TOKEN="yKBaSXOehEeTflxBJVG"
+MOCK_SPEC_URL="http://localhost:8000"
+```
+
+## Code Generation
+
+This library uses code generated with [Swagger Codegen](https://swagger.io/tools/swagger-codegen/). Make sure swagger codegen installed on your machine ( via homebrew ) along with [jq](https://stedolan.github.io/jq/). There are two scripts included to generate both the production client as well as unit test fixtures.
+
+### Production Client
+
+Client code is generated from [https://api.swaggerhub.com/apis/jordan-hoff/osborne_erp_service_api/x.x.x](https://app.swaggerhub.com/apis/jordan-hoff/osborne_erp_service_api). To re-generate, run the `generate-client.sh` script. This script will automatically use the latest version of the client spec.
+
+```bash
+./generate-client.sh
+```
+
+### Unit Test Fixtures
+
+Similar to the client code, there are test fixtures generated from [https://api.swaggerhub.com/apis/jordan-hoff/test_fixtures/x.x.x](https://app.swaggerhub.com/apis/jordan-hoff/test_fixtures). To re-generate, run the `generate-fixtures.sh` script. This script will automatically use the latest version of the fixtures spec.
+
+```bash
+./generate-fixtures.sh
 ```

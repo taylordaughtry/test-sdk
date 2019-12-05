@@ -1,14 +1,14 @@
-# HappyCog\OsborneApi\ErpService\ShippingEstimateApi
+# HappyCog\OsborneApi\ErpService\ShippingEstimatesApi
 
 All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**shippingEstimatePost**](ShippingEstimateApi.md#shippingEstimatePost) | **POST** /shipping-estimate | Create a shipping estimate based on in progress Order information
+[**shippingEstimatesPost**](ShippingEstimatesApi.md#shippingEstimatesPost) | **POST** /shipping-estimates | Create a shipping estimate based on in progress Order information
 
 
-# **shippingEstimatePost**
-> \HappyCog\OsborneApi\ErpService\Model\ShippingEstimate shippingEstimatePost($body)
+# **shippingEstimatesPost**
+> \HappyCog\OsborneApi\ErpService\Model\ShippingEstimate shippingEstimatesPost($body)
 
 Create a shipping estimate based on in progress Order information
 
@@ -18,7 +18,7 @@ Create a shipping estimate based on in progress Order information
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-$apiInstance = new HappyCog\OsborneApi\ErpService\Api\ShippingEstimateApi(
+$apiInstance = new HappyCog\OsborneApi\ErpService\Api\ShippingEstimatesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -27,10 +27,10 @@ $apiInstance = new HappyCog\OsborneApi\ErpService\Api\ShippingEstimateApi(
 $body = new \HappyCog\OsborneApi\ErpService\Model\ShippingEstimateRequest(); // \HappyCog\OsborneApi\ErpService\Model\ShippingEstimateRequest | 
 
 try {
-    $result = $apiInstance->shippingEstimatePost($body);
+    $result = $apiInstance->shippingEstimatesPost($body);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ShippingEstimateApi->shippingEstimatePost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ShippingEstimatesApi->shippingEstimatesPost: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

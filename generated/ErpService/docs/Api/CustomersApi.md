@@ -6,10 +6,10 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**customersCustomerIdBillingAddressesGet**](CustomersApi.md#customersCustomerIdBillingAddressesGet) | **GET** /customers/{customerId}/billing-addresses | Get a list of Billing Addresses for a Customer
 [**customersCustomerIdGet**](CustomersApi.md#customersCustomerIdGet) | **GET** /customers/{customerId} | Get info about a Customer
-[**customersCustomerIdNotesGet**](CustomersApi.md#customersCustomerIdNotesGet) | **GET** /customers/{customerId}/notes | Used for initial import only  Get a list of Notes for a Customer
-[**customersCustomerIdOrderServicesGet**](CustomersApi.md#customersCustomerIdOrderServicesGet) | **GET** /customers/{customerId}/order-services | Used for initial import only  Get a list of Order Services for a Customer
-[**customersCustomerIdPaymentTermsGet**](CustomersApi.md#customersCustomerIdPaymentTermsGet) | **GET** /customers/{customerId}/payment-terms | Used for initial import only  Get a list of Payment Terms for a Customer
-[**customersCustomerIdProductPricesGet**](CustomersApi.md#customersCustomerIdProductPricesGet) | **GET** /customers/{customerId}/product-prices | Used for initial import only  Get a list of Customer Product Prices for a Customer
+[**customersCustomerIdNotesGet**](CustomersApi.md#customersCustomerIdNotesGet) | **GET** /customers/{customerId}/notes | Get a list of Notes for a Customer
+[**customersCustomerIdOrderServicesGet**](CustomersApi.md#customersCustomerIdOrderServicesGet) | **GET** /customers/{customerId}/order-services | Get a list of Order Services for a Customer
+[**customersCustomerIdPaymentTermsGet**](CustomersApi.md#customersCustomerIdPaymentTermsGet) | **GET** /customers/{customerId}/payment-terms | Get a list of Payment Terms for a Customer
+[**customersCustomerIdProductPricesGet**](CustomersApi.md#customersCustomerIdProductPricesGet) | **GET** /customers/{customerId}/product-prices | Get a list of Customer Product Prices for a Customer
 [**customersCustomerIdPromotionsGet**](CustomersApi.md#customersCustomerIdPromotionsGet) | **GET** /customers/{customerId}/promotions | Used for initial import only  Get a list of Promotions for a Customer
 [**customersCustomerIdPut**](CustomersApi.md#customersCustomerIdPut) | **PUT** /customers/{customerId} | Update a Customer
 [**customersCustomerIdShippingAddressesGet**](CustomersApi.md#customersCustomerIdShippingAddressesGet) | **GET** /customers/{customerId}/shipping-addresses | Used for initial import only  Get a list of Shipping Addresses for a Customer ( 5 most recent )
@@ -118,7 +118,7 @@ Name | Type | Description  | Notes
 # **customersCustomerIdNotesGet**
 > \HappyCog\OsborneApi\ErpService\Model\CustomerNote[] customersCustomerIdNotesGet($customerId)
 
-Used for initial import only  Get a list of Notes for a Customer
+Get a list of Notes for a Customer
 
 ### Example
 ```php
@@ -167,7 +167,7 @@ Name | Type | Description  | Notes
 # **customersCustomerIdOrderServicesGet**
 > \HappyCog\OsborneApi\ErpService\Model\OrderService[] customersCustomerIdOrderServicesGet($customerId)
 
-Used for initial import only  Get a list of Order Services for a Customer
+Get a list of Order Services for a Customer
 
 ### Example
 ```php
@@ -216,7 +216,7 @@ Name | Type | Description  | Notes
 # **customersCustomerIdPaymentTermsGet**
 > \HappyCog\OsborneApi\ErpService\Model\PaymentTerm[] customersCustomerIdPaymentTermsGet($customerId)
 
-Used for initial import only  Get a list of Payment Terms for a Customer
+Get a list of Payment Terms for a Customer
 
 ### Example
 ```php
@@ -265,7 +265,7 @@ Name | Type | Description  | Notes
 # **customersCustomerIdProductPricesGet**
 > \HappyCog\OsborneApi\ErpService\Model\CustomerProductPrice[] customersCustomerIdProductPricesGet($customerId)
 
-Used for initial import only  Get a list of Customer Product Prices for a Customer
+Get a list of Customer Product Prices for a Customer
 
 ### Example
 ```php

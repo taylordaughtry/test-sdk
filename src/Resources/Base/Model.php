@@ -2,10 +2,12 @@
 
 namespace HappyCog\OsborneApi\Resources\Base;
 
-use ReflectionClass;
+use Exception;
 use Illuminate\Support\Str;
-use HappyCog\OsborneApi\Resources\Base\Builder;
 
+/**
+ * @SuppressWarnings(PHPMD.TooManyPublicMethods)
+ */
 abstract class Model
 {
     /**
@@ -64,13 +66,13 @@ abstract class Model
     /**
      * Destroy a resource by id
      *
-     * @param int $id
+     * @param int $modelId
      *
      * @return mixed
      */
-    public static function destroy(int $id)
+    public static function destroy(int $modelId)
     {
-        return (new static)->builder()->request('', 'destroy', $id);
+        return (new static)->builder()->request('', 'destroy', $modelId);
     }
 
     /**
@@ -95,10 +97,19 @@ abstract class Model
      */
     public function __call($name, $arguments)
     {
-        if ($this->builder()->canRequest($this->path . '.' . Str::snake($name), 'show')) {
-            return $this->adopt(
-                $this->builder()->request($this->path . '.' . Str::snake($name), 'show', ...$this->ids(...$arguments))
-            );
+        if ($this->builder()->hasResource($resource = $this->path . '.' . Str::snake($name))) {
+            if ($this->builder()->canRequest($resource, 'show')) {
+                return $this->adopt(
+                    $this->builder()->request($resource, 'show', ...$this->ids(...$arguments))
+                );
+            }
+
+            throw new Exception(sprintf(
+                'API does not support "%s(%s)" on %s',
+                $name,
+                implode(', ', $arguments),
+                get_class($this)
+            ));
         }
 
         return $this->builder()->request($this->path, $name, ...$arguments);
@@ -113,10 +124,18 @@ abstract class Model
      */
     public function __get(string $name)
     {
-        if ($this->builder()->canRequest($this->path . '.' . Str::snake($name), 'index')) {
-            return $this->adopt(
-                $this->builder()->request($this->path . '.' . Str::snake($name), 'index', ...$this->ids())
-            );
+        if ($this->builder()->hasResource($resource = $this->path . '.' . Str::snake($name))) {
+            if ($this->builder()->canRequest($resource, 'index')) {
+                return $this->adopt(
+                    $this->builder()->request($resource, 'index', ...$this->ids())
+                );
+            }
+
+            throw new Exception(sprintf(
+                'API does not support listing "%s" on %s',
+                $name,
+                get_class($this)
+            ));
         }
 
         return $this->container[$name] ?? null;

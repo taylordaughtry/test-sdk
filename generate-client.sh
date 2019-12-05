@@ -12,6 +12,8 @@ rm -rf ./generated
 
 LATEST=`curl https://api.swaggerhub.com/apis/jordan-hoff/osborne_erp_service_api | jq -r '.apis[-1].properties[] | select(.type=="Swagger") | .url'`
 
+echo "Using spec: $LATEST"
+
 # generate the initial codebase from the latest availabe swagger specs
 $COMMAND generate \
     --input-spec $LATEST \
@@ -27,13 +29,15 @@ $COMMAND generate \
 cd generated/ErpService
 
 # Cleanup the additional scaffolding that swagger-codegen creates
-rm -rf test/
+rm -rf test/ \
+    ../.swagger-codegen/
 rm -f \
     .php_cs \
     .travis.yml \
     composer.json \
     git_push.sh \
-    phpunit.xml.dist
+    phpunit.xml.dist \
+    ../.swagger-codegen-ignore
 
 # Autoload all of the new classes
 cd ../../

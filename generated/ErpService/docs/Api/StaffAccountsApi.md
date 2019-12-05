@@ -1,16 +1,16 @@
-# HappyCog\OsborneApi\ErpService\StaffAccountApi
+# HappyCog\OsborneApi\ErpService\StaffAccountsApi
 
 All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**staffAccountGet**](StaffAccountApi.md#staffAccountGet) | **GET** /staff-account | Get a list of Staff Accounts
-[**staffAccountStaffAccountIdGet**](StaffAccountApi.md#staffAccountStaffAccountIdGet) | **GET** /staff-account/{staffAccountId} | Get info about a Staff Account
-[**staffAccountStaffAccountIdPermissionsGet**](StaffAccountApi.md#staffAccountStaffAccountIdPermissionsGet) | **GET** /staff-account/{staffAccountId}/permissions | Get a list of Permissions for a Staff Account
+[**staffAccountsGet**](StaffAccountsApi.md#staffAccountsGet) | **GET** /staff-accounts | Get a list of Staff Accounts
+[**staffAccountsStaffAccountIdGet**](StaffAccountsApi.md#staffAccountsStaffAccountIdGet) | **GET** /staff-accounts/{staffAccountId} | Get info about a Staff Account
+[**staffAccountsStaffAccountIdPermissionsGet**](StaffAccountsApi.md#staffAccountsStaffAccountIdPermissionsGet) | **GET** /staff-accounts/{staffAccountId}/permissions | Get a list of Permissions for a Staff Account
 
 
-# **staffAccountGet**
-> \HappyCog\OsborneApi\ErpService\Model\StaffAccount[] staffAccountGet()
+# **staffAccountsGet**
+> \HappyCog\OsborneApi\ErpService\Model\StaffAccount[] staffAccountsGet()
 
 Get a list of Staff Accounts
 
@@ -20,7 +20,7 @@ Get a list of Staff Accounts
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-$apiInstance = new HappyCog\OsborneApi\ErpService\Api\StaffAccountApi(
+$apiInstance = new HappyCog\OsborneApi\ErpService\Api\StaffAccountsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -28,10 +28,10 @@ $apiInstance = new HappyCog\OsborneApi\ErpService\Api\StaffAccountApi(
 );
 
 try {
-    $result = $apiInstance->staffAccountGet();
+    $result = $apiInstance->staffAccountsGet();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling StaffAccountApi->staffAccountGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling StaffAccountsApi->staffAccountsGet: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -54,8 +54,8 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **staffAccountStaffAccountIdGet**
-> \HappyCog\OsborneApi\ErpService\Model\StaffAccount staffAccountStaffAccountIdGet($staffAccountId)
+# **staffAccountsStaffAccountIdGet**
+> \HappyCog\OsborneApi\ErpService\Model\StaffAccount staffAccountsStaffAccountIdGet($staffAccountId)
 
 Get info about a Staff Account
 
@@ -65,7 +65,7 @@ Get info about a Staff Account
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-$apiInstance = new HappyCog\OsborneApi\ErpService\Api\StaffAccountApi(
+$apiInstance = new HappyCog\OsborneApi\ErpService\Api\StaffAccountsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -74,10 +74,10 @@ $apiInstance = new HappyCog\OsborneApi\ErpService\Api\StaffAccountApi(
 $staffAccountId = 56; // int | Staff Account Id
 
 try {
-    $result = $apiInstance->staffAccountStaffAccountIdGet($staffAccountId);
+    $result = $apiInstance->staffAccountsStaffAccountIdGet($staffAccountId);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling StaffAccountApi->staffAccountStaffAccountIdGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling StaffAccountsApi->staffAccountsStaffAccountIdGet: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -103,8 +103,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **staffAccountStaffAccountIdPermissionsGet**
-> \HappyCog\OsborneApi\ErpService\Model\StaffAccountPermission[] staffAccountStaffAccountIdPermissionsGet($staffAccountId)
+# **staffAccountsStaffAccountIdPermissionsGet**
+> \HappyCog\OsborneApi\ErpService\Model\StaffAccountPermission[] staffAccountsStaffAccountIdPermissionsGet($staffAccountId)
 
 Get a list of Permissions for a Staff Account
 
@@ -114,7 +114,7 @@ Get a list of Permissions for a Staff Account
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-$apiInstance = new HappyCog\OsborneApi\ErpService\Api\StaffAccountApi(
+$apiInstance = new HappyCog\OsborneApi\ErpService\Api\StaffAccountsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -123,10 +123,10 @@ $apiInstance = new HappyCog\OsborneApi\ErpService\Api\StaffAccountApi(
 $staffAccountId = 56; // int | Staff Account Id
 
 try {
-    $result = $apiInstance->staffAccountStaffAccountIdPermissionsGet($staffAccountId);
+    $result = $apiInstance->staffAccountsStaffAccountIdPermissionsGet($staffAccountId);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling StaffAccountApi->staffAccountStaffAccountIdPermissionsGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling StaffAccountsApi->staffAccountsStaffAccountIdPermissionsGet: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

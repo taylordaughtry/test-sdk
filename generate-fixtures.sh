@@ -28,14 +28,16 @@ cd tests/Fixtures
 
 # Cleanup the additional scaffolding that swagger-codegen creates
 rm -rf test/ \
-    docs/
+    docs/ \
+    ../.swagger-codegen/
 rm -f \
     .php_cs \
     .travis.yml \
     composer.json \
     git_push.sh \
     phpunit.xml.dist \
-    README.md
+    README.md \
+    ../.swagger-codegen-ignore
 
 # Autoload all of the new classes
 cd ../../

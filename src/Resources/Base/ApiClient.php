@@ -2,9 +2,8 @@
 
 namespace HappyCog\OsborneApi\Resources\Base;
 
-use Illuminate\Support\Str;
-use HappyCog\OsborneApi\Resources\Base\Model;
 use HappyCog\OsborneApi\Resources\Base\ApiClient\Operations;
+use HappyCog\OsborneApi\Resources\Exceptions\BadResourceMethodException;
 
 abstract class ApiClient
 {
@@ -38,7 +37,7 @@ abstract class ApiClient
             return $this->$method(...$input);
         }
 
-        return false;
+        throw new BadResourceMethodException;
     }
 
     /**
@@ -65,5 +64,17 @@ abstract class ApiClient
     public function hasOperation(string $path, string $action)
     {
         return $this->operations->getOperation($path, $action) !== false;
+    }
+
+    /**
+     * Check if the api has a resource
+     *
+     * @param string $resource
+     *
+     * @return boolean
+     */
+    public function hasResource(string $resource)
+    {
+        return $this->operations->hasResource($resource);
     }
 }

@@ -3,6 +3,7 @@
 namespace HappyCog\OsborneApi\Resources\Base\ApiClient;
 
 use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
 
 class Operations
 {
@@ -32,6 +33,19 @@ class Operations
     public function getOperation(string $path, string $action)
     {
         return Arr::get($this->structure, trim("$path.$action.operation", '.'), false);
+    }
+
+    /**
+     * Determines if the structure has the provided resource
+     *
+     * @param string $resource
+     *
+     * @return boolean
+     */
+    public function hasResource(string $resource)
+    {
+        return ! Str::endsWith($resource, ['index', 'show', 'create', 'update', 'destroy']) &&
+            Arr::has($this->structure, trim($resource, '.'));
     }
 
     /**

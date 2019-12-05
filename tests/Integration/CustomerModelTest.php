@@ -13,6 +13,9 @@ use HappyCog\OsborneApi\ErpService\Model\CustomerNote;
 use HappyCog\OsborneApi\ErpService\Model\OrderService;
 use HappyCog\OsborneApi\ErpService\Model\CustomerProductPrice;
 
+/**
+ * @SuppressWarnings(PHPMD.TooManyPublicMethods)
+ */
 class CustomerModelTest extends TestCase
 {
     use SwaggerServiceApi;
@@ -41,6 +44,7 @@ class CustomerModelTest extends TestCase
     public function serviceApiCreatesCustomers()
     {
         $customer = Customer::create([
+            'id' => 123, // this fixes a bug with prism
             'firstName' => 'John',
             'lastName' => 'Doe',
             'email' => 'jdoe@example.com',
@@ -49,9 +53,6 @@ class CustomerModelTest extends TestCase
             'shippingCarrierId' => 23,
             'buyingGroupId' => 34,
             'freightTermsId' => 45,
-            'paymentTermsId' => 56,
-            'taxZoneId' => 67,
-            'taxExempt' => false,
         ]);
 
         $this->assertInstanceOf(Customer::class, $customer);
@@ -69,9 +70,6 @@ class CustomerModelTest extends TestCase
             'shippingCarrierId' => 23,
             'buyingGroupId' => 34,
             'freightTermsId' => 45,
-            'paymentTermsId' => 56,
-            'taxZoneId' => 67,
-            'taxExempt' => false,
         ]);
 
         $this->assertInstanceOf(Customer::class, $customer);

@@ -2,8 +2,6 @@
 
 namespace HappyCog\OsborneApi\Resources\Base;
 
-use Illuminate\Support\Str;
-use HappyCog\OsborneApi\Resources\Base\Model;
 use Illuminate\Support\Collection as BaseCollection;
 
 class Collection extends BaseCollection
