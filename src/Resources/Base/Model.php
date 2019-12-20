@@ -198,9 +198,7 @@ abstract class Model
 
         $this->exists = false;
 
-        $params = array_filter(array_merge($this->ids(), [$this->id]));
-
-        return $this->builder()->request($this->path, 'destroy', ...$params);
+        return $this->builder()->request($this->path, 'destroy', ...$this->ids());
     }
 
     /**

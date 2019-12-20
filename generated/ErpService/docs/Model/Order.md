@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **customerId** | **int** |  | 
 **email** | **string** |  | 
 **status** | **string** |  | 
-**scheduledShipDate** | **string** | ISO 8601 format | [optional] 
+**scheduledShipDate** | [**\DateTime**](\DateTime.md) | ISO 8601 format | [optional] 
 **billingAddress** | [**\HappyCog\OsborneApi\ErpService\Model\Address**](Address.md) |  | [optional] 
 **shippingAddress** | [**\HappyCog\OsborneApi\ErpService\Model\Address**](Address.md) |  | [optional] 
 **shippingDescription** | **string** |  | [optional] 
@@ -27,6 +27,8 @@ Name | Type | Description | Notes
 **shipping** | **float** |  | [optional] 
 **total** | **float** |  | [optional] 
 **trackingNumber** | **string** | The tracking number provided by the shipping carrier | [optional] 
+**createdAt** | [**\DateTime**](\DateTime.md) | ISO 8601 format | [optional] 
+**updatedAt** | [**\DateTime**](\DateTime.md) | ISO 8601 format | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

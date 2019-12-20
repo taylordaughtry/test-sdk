@@ -20,6 +20,10 @@ Used for initial import only  Get info about a Category
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+    // Configure HTTP bearer authorization: bearerAuth
+    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\CategoriesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -68,6 +72,10 @@ Used for initial import only  Get info about a Category Image
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+    // Configure HTTP bearer authorization: bearerAuth
+    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\CategoriesApi(
@@ -120,6 +128,10 @@ Used for initial import only  Get a list of Category Images
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+    // Configure HTTP bearer authorization: bearerAuth
+    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\CategoriesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -168,6 +180,10 @@ Used for initial import only  Get a list of top level Categories
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+    // Configure HTTP bearer authorization: bearerAuth
+    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\CategoriesApi(

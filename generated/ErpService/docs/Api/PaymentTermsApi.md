@@ -18,6 +18,10 @@ Used for initial import only  Get a list of Payment Terms
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+    // Configure HTTP bearer authorization: bearerAuth
+    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\PaymentTermsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -62,6 +66,10 @@ Used for initial import only  Get info about a Payment Term
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+    // Configure HTTP bearer authorization: bearerAuth
+    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\PaymentTermsApi(

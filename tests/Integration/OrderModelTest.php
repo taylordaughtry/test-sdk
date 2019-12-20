@@ -3,7 +3,7 @@
 namespace HappyCog\Tests\Integration;
 
 use HappyCog\Tests\TestCase;
-use HappyCog\Tests\Traits\SwaggerServiceApi;
+use HappyCog\Tests\Traits\IntegrationServiceApi;
 use HappyCog\OsborneApi\ErpService\Model\Order;
 use HappyCog\OsborneApi\Resources\Base\Collection;
 use HappyCog\OsborneApi\ErpService\Model\OrderFile;
@@ -20,7 +20,7 @@ use HappyCog\OsborneApi\ErpService\Model\AppliedProductService;
  */
 class OrderModelTest extends TestCase
 {
-    use SwaggerServiceApi;
+    use IntegrationServiceApi;
 
     /** @test */
     public function serviceApiFindsAllOrders()
@@ -34,53 +34,58 @@ class OrderModelTest extends TestCase
         }
     }
 
-    /** @test */
+    /**
+     * @test
+     */
     public function serviceApiCreatesOrders()
     {
         $order = Order::create([
-            'id' => 123, // this fixes a bug with prism
-            'firstName' => 'John',
-            'lastName' => 'Doe',
-            'email' => 'jdoe@example.com',
-            'emailOptIn' => true,
-            'billingAddressId' => 12,
-            'shippingCarrierId' => 23,
-            'buyingGroupId' => 34,
-            'freightTermsId' => 45,
+            'customerId' => 23,
+            'email' => 'johndoe@example.com',
+            'status' => 'Created',
         ]);
 
         $this->assertInstanceOf(Order::class, $order);
+
+        return $order->id;
     }
 
-    /** @test */
-    public function serviceApiFindsASpecificOrder()
+    /**
+     * @test
+     * @depends serviceApiCreatesOrders
+     */
+    public function serviceApiFindsASpecificOrder($orderId)
     {
-        $order = Order::find(123);
+        $foundOrder = Order::find($orderId);
 
-        $this->assertInstanceOf(Order::class, $order);
+        $this->assertInstanceOf(Order::class, $foundOrder);
     }
 
-    /** @test */
-    public function serviceApiUpdatesOrders()
+    /**
+     * @test
+     * @depends serviceApiCreatesOrders
+     */
+    public function serviceApiUpdatesOrders($orderId)
     {
-        $order = Order::find(123)->update([
-            'firstName' => 'John',
-            'lastName' => 'Doe',
-            'email' => 'jdoe@example.com',
-            'emailOptIn' => true,
-            'billingAddressId' => 12,
-            'shippingCarrierId' => 23,
-            'buyingGroupId' => 34,
-            'freightTermsId' => 45,
+        $updated = Order::find($orderId)->update([
+            'customerId' => 34,
+            'email' => 'janedoe@example.com',
+            'status' => 'Updated',
         ]);
 
-        $this->assertInstanceOf(Order::class, $order);
+        $this->assertInstanceOf(Order::class, $updated);
+
+        $this->assertEquals('janedoe@example.com', $updated->email);
     }
 
-    /** @test */
+    /**
+     * @test
+     */
     public function serviceApiVoidsAnOrder()
     {
-        $response = Order::find(123)->delete();
+        $orderId = $this->serviceApiCreatesOrders();
+
+        $response = Order::find($orderId)->delete();
 
         $this->assertIsArray($response);
         $this->assertEquals([
@@ -88,10 +93,14 @@ class OrderModelTest extends TestCase
         ], $response);
     }
 
-    /** @test */
-    public function serviceApiFindsAllOrderLines()
+    /**
+     * @test
+     * @depends serviceApiCreatesOrders
+     * @depends serviceApiCreatesOrderLines
+     */
+    public function serviceApiFindsAllOrderLines($orderId)
     {
-        $lines = Order::find(123)->lines;
+        $lines = Order::find($orderId)->lines;
 
         $this->assertInstanceOf(Collection::class, $lines);
 
@@ -100,10 +109,46 @@ class OrderModelTest extends TestCase
         }
     }
 
-    /** @test */
-    public function serviceApiCreatesOrderLines()
+    /**
+     * @test
+     * @depends serviceApiCreatesOrders
+     */
+    public function serviceApiCreatesOrderLines($orderId)
     {
-        $line = Order::find(123)->lines->create([
+        $line = Order::find($orderId)->lines->create([
+            'productId' => 23,
+            'productMaterialId' => 34,
+            'quantity' => 7,
+            'originalPrice' => 4.56,
+            'unitPrice' => 5.67,
+            'totalPrice' => 39.69,
+        ]);
+
+        $this->assertInstanceOf(OrderLine::class, $line);
+
+        return $line->id;
+    }
+
+    /**
+     * @test
+     * @depends serviceApiCreatesOrders
+     * @depends serviceApiCreatesOrderLines
+     */
+    public function serviceApiFindsASpecificOrderLine($orderId, $lineId)
+    {
+        $line = Order::find($orderId)->lines($lineId);
+
+        $this->assertInstanceOf(OrderLine::class, $line);
+    }
+
+    /**
+     * @test
+     * @depends serviceApiCreatesOrders
+     * @depends serviceApiCreatesOrderLines
+     */
+    public function serviceApiUpdatesOrderLines($orderId, $lineId)
+    {
+        $line = Order::find($orderId)->lines($lineId)->update([
             'productId' => 23,
             'productMaterialId' => 34,
             'quantity' => 7,
@@ -115,33 +160,15 @@ class OrderModelTest extends TestCase
         $this->assertInstanceOf(OrderLine::class, $line);
     }
 
-    /** @test */
-    public function serviceApiFindsASpecificOrderLine()
+    /**
+     * @test
+     * @depends serviceApiCreatesOrders
+     */
+    public function serviceApiDeletesAnOrderLine($orderId)
     {
-        $line = Order::find(123)->lines(234);
+        $lineId = $this->serviceApiCreatesOrderLines($orderId);
 
-        $this->assertInstanceOf(OrderLine::class, $line);
-    }
-
-    /** @test */
-    public function serviceApiUpdatesOrderLines()
-    {
-        $line = Order::find(123)->lines(234)->update([
-            'productId' => 23,
-            'productMaterialId' => 34,
-            'quantity' => 7,
-            'originalPrice' => 4.56,
-            'unitPrice' => 5.67,
-            'totalPrice' => 39.69,
-        ]);
-
-        $this->assertInstanceOf(OrderLine::class, $line);
-    }
-
-    /** @test */
-    public function serviceApiDeletesAnOrderLine()
-    {
-        $response = Order::find(123)->lines(234)->delete();
+        $response = Order::find($orderId)->lines($lineId)->delete();
 
         $this->assertIsArray($response);
         $this->assertEquals([
@@ -149,22 +176,32 @@ class OrderModelTest extends TestCase
         ], $response);
     }
 
-    /** @test */
-    public function serviceApiCreatesAnOrderFile()
+    /**
+     * @test
+     * @depends serviceApiCreatesOrders
+     */
+    public function serviceApiCreatesAnOrderFile($orderId)
     {
-        $file = Order::find(123)->files->create([
-            'productId' => 123,
-            'filename' => 'product123.jpg',
-            'contents' => 'string'
+        $file = Order::find($orderId)->files->create([
+            'productId' => 34,
+            'filename' => 'example321.jpg',
+            'contents' => base64_encode('This is some file data in base64'),
         ]);
 
         $this->assertInstanceOf(OrderFile::class, $file);
+
+        $this->assertEquals('This is some file data in base64', base64_decode($file->contents));
     }
 
-    /** @test */
-    public function serviceApiFindsAllOrderLineServices()
+    /**
+     * @test
+     * @depends serviceApiCreatesOrders
+     * @depends serviceApiCreatesOrderLines
+     * @depends serviceApiCreatesOrderLineServices
+     */
+    public function serviceApiFindsAllOrderLineServices($orderId, $lineId)
     {
-        $services = Order::find(123)->lines(234)->services;
+        $services = Order::find($orderId)->lines($lineId)->services;
 
         $this->assertInstanceOf(Collection::class, $services);
 
@@ -173,44 +210,68 @@ class OrderModelTest extends TestCase
         }
     }
 
-    /** @test */
-    public function serviceApiCreatesOrderLineServices()
+    /**
+     * @test
+     * @depends serviceApiCreatesOrders
+     * @depends serviceApiCreatesOrderLines
+     */
+    public function serviceApiCreatesOrderLineServices($orderId, $lineId)
     {
-        $service = Order::find(123)->lines(234)->services->create([
-            'orderLineId' => 234,
+        $service = Order::find($orderId)->lines($lineId)->services->create([
+            'orderLineId' => 2,
             'productServiceId' => 34,
             'note' => 'Cut (v1) off of (v2) of product',
             'price' => 3.45,
         ]);
 
         $this->assertInstanceOf(AppliedProductService::class, $service);
+
+        return $service->id;
     }
 
-    /** @test */
-    public function serviceApiFindsASpecificOrderLineService()
+    /**
+     * @test
+     * @depends serviceApiCreatesOrders
+     * @depends serviceApiCreatesOrderLines
+     * @depends serviceApiCreatesOrderLineServices
+     */
+    public function serviceApiFindsASpecificOrderLineService($orderId, $lineId, $serviceId)
     {
-        $service = Order::find(123)->lines(234)->services(345);
+        $service = Order::find($orderId)->lines($lineId)->services($serviceId);
 
         $this->assertInstanceOf(AppliedProductService::class, $service);
     }
 
-    /** @test */
-    public function serviceApiUpdatesOrderLineService()
+    /**
+     * @test
+     * @depends serviceApiCreatesOrders
+     * @depends serviceApiCreatesOrderLines
+     * @depends serviceApiCreatesOrderLineServices
+     */
+    public function serviceApiUpdatesOrderLineService($orderId, $lineId, $serviceId)
     {
-        $service = Order::find(123)->lines(234)->services(345)->update([
-            'orderLineId' => 23,
-            'productServiceId' => 34,
-            'note' => 'Cut (v1) off of (v2) of product',
-            'price' => 3.45,
+        $service = Order::find($orderId)->lines($lineId)->services($serviceId)->update([
+            'orderLineId' => 34,
+            'productServiceId' => 45,
+            'note' => 'Cut (v2) off of (v3) of product',
+            'price' => 4.56,
         ]);
 
         $this->assertInstanceOf(AppliedProductService::class, $service);
+
+        $this->assertEquals(4.56, $service->price);
     }
 
-    /** @test */
-    public function serviceApiDeletesAnOrderLineService()
+    /**
+     * @test
+     * @depends serviceApiCreatesOrders
+     * @depends serviceApiCreatesOrderLines
+     */
+    public function serviceApiDeletesAnOrderLineService($orderId, $lineId)
     {
-        $response = Order::find(123)->lines(234)->services(345)->delete();
+        $serviceId = $this->serviceApiCreatesOrderLineServices($orderId, $lineId);
+
+        $response = Order::find($orderId)->lines($lineId)->services($serviceId)->delete();
 
         $this->assertIsArray($response);
         $this->assertEquals([
@@ -218,10 +279,14 @@ class OrderModelTest extends TestCase
         ], $response);
     }
 
-    /** @test */
-    public function serviceApiFindsAllOrderNotes()
+    /**
+     * @test
+     * @depends serviceApiCreatesOrders
+     * @depends serviceApiCreatesOrderNotes
+     */
+    public function serviceApiFindsAllOrderNotes($orderId)
     {
-        $notes = Order::find(123)->notes;
+        $notes = Order::find($orderId)->notes;
 
         $this->assertInstanceOf(Collection::class, $notes);
 
@@ -230,40 +295,60 @@ class OrderModelTest extends TestCase
         }
     }
 
-    /** @test */
-    public function serviceApiCreatesOrderNotes()
+    /**
+     * @test
+     * @depends serviceApiCreatesOrders
+     */
+    public function serviceApiCreatesOrderNotes($orderId)
     {
-        $note = Order::find(123)->notes->create([
-            'orderId' => 123,
+        $note = Order::find($orderId)->notes->create([
+            'orderId' => 23,
             'text' => 'This is a note',
         ]);
 
         $this->assertInstanceOf(OrderNote::class, $note);
+
+        return $note->id;
     }
 
-    /** @test */
-    public function serviceApiFindsASpecificOrderNote()
+    /**
+     * @test
+     * @depends serviceApiCreatesOrders
+     * @depends serviceApiCreatesOrderNotes
+     */
+    public function serviceApiFindsASpecificOrderNote($orderId, $noteId)
     {
-        $note = Order::find(123)->notes(234);
+        $note = Order::find($orderId)->notes($noteId);
 
         $this->assertInstanceOf(OrderNote::class, $note);
     }
 
-    /** @test */
-    public function serviceApiUpdatesOrderNotes()
+    /**
+     * @test
+     * @depends serviceApiCreatesOrders
+     * @depends serviceApiCreatesOrderNotes
+     */
+    public function serviceApiUpdatesOrderNotes($orderId, $noteId)
     {
-        $note = Order::find(123)->notes(234)->update([
-            'orderId' => 123,
-            'text' => 'This is a note',
+        $note = Order::find($orderId)->notes($noteId)->update([
+            'orderId' => 34,
+            'text' => 'This is a different note',
         ]);
 
         $this->assertInstanceOf(OrderNote::class, $note);
+
+        $this->assertEquals('This is a different note', $note->text);
     }
 
-    /** @test */
-    public function serviceApiDeletesAnOrderNote()
+    /**
+     * @test
+     * @depends serviceApiCreatesOrders
+     */
+    public function serviceApiDeletesAnOrderNote($orderId)
     {
-        $response = Order::find(123)->notes(234)->delete();
+        $noteId = $this->serviceApiCreatesOrderNotes($orderId);
+
+        $response = Order::find($orderId)->notes($noteId)->delete();
 
         $this->assertIsArray($response);
         $this->assertEquals([
@@ -271,30 +356,43 @@ class OrderModelTest extends TestCase
         ], $response);
     }
 
-    /** @test */
-    public function serviceApiFindsAllOrderPackages()
+    /**
+     * @test
+     * @depends serviceApiCreatesOrders
+     */
+    public function serviceApiFindsAllOrderPackages($orderId)
     {
-        $packages = Order::find(123)->packages;
+        $packages = Order::find($orderId)->packages;
 
         $this->assertInstanceOf(Collection::class, $packages);
 
         foreach ($packages as $package) {
             $this->assertInstanceOf(OrderPackage::class, $package);
         }
+
+        return $packages->first()->id;
     }
 
-    /** @test */
-    public function serviceApiFindsASpecificOrderPackage()
+    /**
+     * @test
+     * @depends serviceApiCreatesOrders
+     * @depends serviceApiFindsAllOrderPackages
+     */
+    public function serviceApiFindsASpecificOrderPackage($orderId, $packageId)
     {
-        $package = Order::find(123)->packages(234);
+        $package = Order::find($orderId)->packages($packageId);
 
         $this->assertInstanceOf(OrderPackage::class, $package);
     }
 
-    /** @test */
-    public function serviceApiFindsAllOrderPayments()
+    /**
+     * @test
+     * @depends serviceApiCreatesOrders
+     * @depends serviceApiCreatesOrderPayments
+     */
+    public function serviceApiFindsAllOrderPayments($orderId)
     {
-        $payments = Order::find(123)->payments;
+        $payments = Order::find($orderId)->payments;
 
         $this->assertInstanceOf(Collection::class, $payments);
 
@@ -303,51 +401,42 @@ class OrderModelTest extends TestCase
         }
     }
 
-    /** @test */
-    public function serviceApiCreatesOrderPayments()
+    /**
+     * @test
+     * @depends serviceApiCreatesOrders
+     */
+    public function serviceApiCreatesOrderPayments($orderId)
     {
-        $payment = Order::find(123)->payments->create([
+        $payment = Order::find($orderId)->payments->create([
             'amount' => 1.23,
             'paymentTerm' => 'Cash',
         ]);
 
         $this->assertInstanceOf(OrderPayment::class, $payment);
+
+        return $payment->id;
     }
 
-    /** @test */
-    public function serviceApiFindsASpecificOrderPayment()
+    /**
+     * @test
+     * @depends serviceApiCreatesOrders
+     * @depends serviceApiCreatesOrderPayments
+     */
+    public function serviceApiFindsASpecificOrderPayment($orderId, $paymentId)
     {
-        $payment = Order::find(123)->payments(234);
+        $payment = Order::find($orderId)->payments($paymentId);
 
         $this->assertInstanceOf(OrderPayment::class, $payment);
     }
 
-    /** @test */
-    public function serviceApiUpdatesOrderPayments()
+    /**
+     * @test
+     * @depends serviceApiCreatesOrders
+     * @depends serviceApiCreatesOrderServices
+     */
+    public function serviceApiFindsAllOrderServices($orderId)
     {
-        $payment = Order::find(123)->payments(234)->update([
-            'amount' => 1.23,
-            'paymentTerm' => 'Cash',
-        ]);
-
-        $this->assertInstanceOf(OrderPayment::class, $payment);
-    }
-
-    /** @test */
-    public function serviceApiDeletesAnOrderPayment()
-    {
-        $response = Order::find(123)->payments(234)->delete();
-
-        $this->assertIsArray($response);
-        $this->assertEquals([
-            'success' => true,
-        ], $response);
-    }
-
-    /** @test */
-    public function serviceApiFindsAllOrderServices()
-    {
-        $services = Order::find(123)->services;
+        $services = Order::find($orderId)->services;
 
         $this->assertInstanceOf(Collection::class, $services);
 
@@ -356,44 +445,64 @@ class OrderModelTest extends TestCase
         }
     }
 
-    /** @test */
-    public function serviceApiCreatesOrderServices()
+    /**
+     * @test
+     * @depends serviceApiCreatesOrders
+     */
+    public function serviceApiCreatesOrderServices($orderId)
     {
-        $service = Order::find(123)->services->create([
-            'orderId' => 123,
+        $service = Order::find($orderId)->services->create([
+            'orderId' => 23,
             'orderServiceId' => 34,
             'note' => 'Rush to Ship',
-            'price' => 3.45
+            'price' => 3.45,
         ]);
 
         $this->assertInstanceOf(AppliedOrderService::class, $service);
+
+        return $service->id;
     }
 
-    /** @test */
-    public function serviceApiFindsASpecificOrderService()
+    /**
+     * @test
+     * @depends serviceApiCreatesOrders
+     * @depends serviceApiCreatesOrderServices
+     */
+    public function serviceApiFindsASpecificOrderService($orderId, $serviceId)
     {
-        $service = Order::find(123)->services(234);
+        $service = Order::find($orderId)->services($serviceId);
 
         $this->assertInstanceOf(AppliedOrderService::class, $service);
     }
 
-    /** @test */
-    public function serviceApiUpdatesOrderServices()
+    /**
+     * @test
+     * @depends serviceApiCreatesOrders
+     * @depends serviceApiCreatesOrderServices
+     */
+    public function serviceApiUpdatesOrderServices($orderId, $serviceId)
     {
-        $service = Order::find(123)->services(234)->update([
-            'orderId' => 123,
-            'orderServiceId' => 34,
-            'note' => 'Rush to Ship',
-            'price' => 3.45
+        $service = Order::find($orderId)->services($serviceId)->update([
+            'orderId' => 34,
+            'orderServiceId' => 45,
+            'note' => 'No Packing Peanuts',
+            'price' => 4.56,
         ]);
 
         $this->assertInstanceOf(AppliedOrderService::class, $service);
+
+        $this->assertEquals('No Packing Peanuts', $service->note);
     }
 
-    /** @test */
-    public function serviceApiDeletesAnOrderService()
+    /**
+     * @test
+     * @depends serviceApiCreatesOrders
+     */
+    public function serviceApiDeletesAnOrderService($orderId)
     {
-        $response = Order::find(123)->services(234)->delete();
+        $serviceId = $this->serviceApiCreatesOrderServices($orderId);
+
+        $response = Order::find($orderId)->services($serviceId)->delete();
 
         $this->assertIsArray($response);
         $this->assertEquals([

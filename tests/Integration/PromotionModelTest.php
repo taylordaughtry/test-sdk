@@ -3,7 +3,7 @@
 namespace HappyCog\Tests\Integration;
 
 use HappyCog\Tests\TestCase;
-use HappyCog\Tests\Traits\SwaggerServiceApi;
+use HappyCog\Tests\Traits\IntegrationServiceApi;
 use HappyCog\OsborneApi\Resources\Base\Collection;
 use HappyCog\OsborneApi\ErpService\Model\Promotion;
 use HappyCog\OsborneApi\ErpService\Model\PromotionProduct;
@@ -12,9 +12,11 @@ use HappyCog\OsborneApi\ErpService\Model\PromotionShippingMethod;
 
 class PromotionModelTest extends TestCase
 {
-    use SwaggerServiceApi;
+    use IntegrationServiceApi;
 
-    /** @test */
+    /**
+     * @test
+     */
     public function serviceApiFindsAllPromotions()
     {
         $promotions = Promotion::all();
@@ -24,20 +26,28 @@ class PromotionModelTest extends TestCase
         foreach ($promotions as $promotion) {
             $this->assertInstanceOf(Promotion::class, $promotion);
         }
+
+        return $promotions->first()->id;
     }
 
-    /** @test */
-    public function serviceApiFindsASpecificPromotion()
+    /**
+     * @test
+     * @depends serviceApiFindsAllPromotions
+     */
+    public function serviceApiFindsASpecificPromotion($promotionId)
     {
-        $promotion = Promotion::find(1);
+        $promotion = Promotion::find($promotionId);
 
         $this->assertInstanceOf(Promotion::class, $promotion);
     }
 
-    /** @test */
-    public function serviceApiFindsPromotionCustomers()
+    /**
+     * @test
+     * @depends serviceApiFindsAllPromotions
+     */
+    public function serviceApiFindsPromotionCustomers($promotionId)
     {
-        $customers = Promotion::find(1)->customers;
+        $customers = Promotion::find($promotionId)->customers;
 
         $this->assertInstanceOf(Collection::class, $customers);
 
@@ -46,30 +56,42 @@ class PromotionModelTest extends TestCase
         }
     }
 
-    /** @test */
-    public function serviceApiFindsPromotionProducts()
+    /**
+     * @test
+     * @depends serviceApiFindsAllPromotions
+     */
+    public function serviceApiFindsPromotionProducts($promotionId)
     {
-        $products = Promotion::find(1)->products;
+        $products = Promotion::find($promotionId)->products;
 
         $this->assertInstanceOf(Collection::class, $products);
 
         foreach ($products as $product) {
             $this->assertInstanceOf(PromotionProduct::class, $product);
         }
+
+        return $products->first()->id;
     }
 
-    /** @test */
-    public function serviceApiFindsSpecificPromotionProduct()
+    /**
+     * @test
+     * @depends serviceApiFindsAllPromotions
+     * @depends serviceApiFindsPromotionProducts
+     */
+    public function serviceApiFindsSpecificPromotionProduct($promotionId, $productId)
     {
-        $product = Promotion::find(1)->products(2);
+        $product = Promotion::find($promotionId)->products($productId);
 
         $this->assertInstanceOf(PromotionProduct::class, $product);
     }
 
-    /** @test */
-    public function serviceApiFindsPromotionShippingMethods()
+    /**
+     * @test
+     * @depends serviceApiFindsAllPromotions
+     */
+    public function serviceApiFindsPromotionShippingMethods($promotionId)
     {
-        $shippingMethods = Promotion::find(1)->shippingMethods;
+        $shippingMethods = Promotion::find($promotionId)->shippingMethods;
 
         $this->assertInstanceOf(Collection::class, $shippingMethods);
 

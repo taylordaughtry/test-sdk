@@ -18,6 +18,10 @@ Used for initial import only  Get info about a Disclaimer
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+    // Configure HTTP bearer authorization: bearerAuth
+    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\DisclaimersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -66,6 +70,10 @@ Used for initial import only  Get a list of Disclaimers
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+    // Configure HTTP bearer authorization: bearerAuth
+    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\DisclaimersApi(

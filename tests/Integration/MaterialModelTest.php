@@ -3,7 +3,7 @@
 namespace HappyCog\Tests\Integration;
 
 use HappyCog\Tests\TestCase;
-use HappyCog\Tests\Traits\SwaggerServiceApi;
+use HappyCog\Tests\Traits\IntegrationServiceApi;
 use HappyCog\OsborneApi\ErpService\Model\Material;
 use HappyCog\OsborneApi\Resources\Base\Collection;
 use HappyCog\OsborneApi\ErpService\Model\Disclaimer;
@@ -11,7 +11,7 @@ use HappyCog\OsborneApi\ErpService\Model\MaterialImage;
 
 class MaterialModelTest extends TestCase
 {
-    use SwaggerServiceApi;
+    use IntegrationServiceApi;
 
     /** @test */
     public function serviceApiFindsAllMaterials()
@@ -23,20 +23,28 @@ class MaterialModelTest extends TestCase
         foreach ($materials as $material) {
             $this->assertInstanceOf(Material::class, $material);
         }
+
+        return $materials->first()->id;
     }
 
-    /** @test */
-    public function serviceApiFindsASpecificMaterial()
+    /**
+     * @test
+     * @depends serviceApiFindsAllMaterials
+     */
+    public function serviceApiFindsASpecificMaterial($materialId)
     {
-        $material = Material::find(1);
+        $material = Material::find($materialId);
 
         $this->assertInstanceOf(Material::class, $material);
     }
 
-    /** @test */
-    public function serviceApiFindsMaterialDisclaimers()
+    /**
+     * @test
+     * @depends serviceApiFindsAllMaterials
+     */
+    public function serviceApiFindsMaterialDisclaimers($materialId)
     {
-        $disclaimers = Material::find(1)->disclaimers;
+        $disclaimers = Material::find($materialId)->disclaimers;
 
         $this->assertInstanceOf(Collection::class, $disclaimers);
 
@@ -45,22 +53,31 @@ class MaterialModelTest extends TestCase
         }
     }
 
-    /** @test */
-    public function serviceApiFindsMaterialImages()
+    /**
+     * @test
+     * @depends serviceApiFindsAllMaterials
+     */
+    public function serviceApiFindsMaterialImages($materialId)
     {
-        $images = Material::find(1)->images;
+        $images = Material::find($materialId)->images;
 
         $this->assertInstanceOf(Collection::class, $images);
 
         foreach ($images as $image) {
             $this->assertInstanceOf(MaterialImage::class, $image);
         }
+
+        return $images->first()->id;
     }
 
-    /** @test */
-    public function serviceApiFindsSpecificMaterialImage()
+    /**
+     * @test
+     * @depends serviceApiFindsAllMaterials
+     * @depends serviceApiFindsMaterialImages
+     */
+    public function serviceApiFindsSpecificMaterialImage($materialId, $imageId)
     {
-        $image = Material::find(1)->images(2);
+        $image = Material::find($materialId)->images($imageId);
 
         $this->assertInstanceOf(MaterialImage::class, $image);
     }

@@ -26,9 +26,7 @@ Method | HTTP request | Description
 [**ordersOrderIdPackagesGet**](OrdersApi.md#ordersOrderIdPackagesGet) | **GET** /orders/{orderId}/packages | Get a list of Packages for an Order
 [**ordersOrderIdPackagesOrderPackageIdGet**](OrdersApi.md#ordersOrderIdPackagesOrderPackageIdGet) | **GET** /orders/{orderId}/packages/{orderPackageId} | Get info about a Package for an Order
 [**ordersOrderIdPaymentsGet**](OrdersApi.md#ordersOrderIdPaymentsGet) | **GET** /orders/{orderId}/payments | Get a list of Payments for an Order
-[**ordersOrderIdPaymentsOrderPaymentIdDelete**](OrdersApi.md#ordersOrderIdPaymentsOrderPaymentIdDelete) | **DELETE** /orders/{orderId}/payments/{orderPaymentId} | Delete a Payment for an Order
 [**ordersOrderIdPaymentsOrderPaymentIdGet**](OrdersApi.md#ordersOrderIdPaymentsOrderPaymentIdGet) | **GET** /orders/{orderId}/payments/{orderPaymentId} | Get info about a Payment for an Order
-[**ordersOrderIdPaymentsOrderPaymentIdPut**](OrdersApi.md#ordersOrderIdPaymentsOrderPaymentIdPut) | **PUT** /orders/{orderId}/payments/{orderPaymentId} | Update a Payment for an Order
 [**ordersOrderIdPaymentsPost**](OrdersApi.md#ordersOrderIdPaymentsPost) | **POST** /orders/{orderId}/payments | Create a new Payment for an Order
 [**ordersOrderIdPut**](OrdersApi.md#ordersOrderIdPut) | **PUT** /orders/{orderId} | Update an Order
 [**ordersOrderIdServicesAppliedOrderServiceIdDelete**](OrdersApi.md#ordersOrderIdServicesAppliedOrderServiceIdDelete) | **DELETE** /orders/{orderId}/services/{appliedOrderServiceId} | Delete an Applied Order Service for an Order
@@ -48,6 +46,10 @@ Get a list of Orders
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+    // Configure HTTP bearer authorization: bearerAuth
+    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
@@ -93,6 +95,10 @@ Void an Order
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+    // Configure HTTP bearer authorization: bearerAuth
+    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
@@ -142,6 +148,10 @@ Create a new File for an Order
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+    // Configure HTTP bearer authorization: bearerAuth
+    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
@@ -194,6 +204,10 @@ Get info about an Order
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+    // Configure HTTP bearer authorization: bearerAuth
+    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -243,6 +257,10 @@ Get a list of Lines for an Order
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+    // Configure HTTP bearer authorization: bearerAuth
+    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -291,6 +309,10 @@ Delete a Line for an Order
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+    // Configure HTTP bearer authorization: bearerAuth
+    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
@@ -343,6 +365,10 @@ Get info about a Line for an Order
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+    // Configure HTTP bearer authorization: bearerAuth
+    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -393,6 +419,10 @@ Update a Line for an Order
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+    // Configure HTTP bearer authorization: bearerAuth
+    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
@@ -447,6 +477,10 @@ Delete an Applied Product Service for an Order Line
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+    // Configure HTTP bearer authorization: bearerAuth
+    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -500,6 +534,10 @@ Get info about an Applied Product Service for an Order Line
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+    // Configure HTTP bearer authorization: bearerAuth
+    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -552,6 +590,10 @@ Update an Applied Product Service for an Order Line
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+    // Configure HTTP bearer authorization: bearerAuth
+    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
@@ -608,6 +650,10 @@ Get a list of Applied Product Services for an Order Line
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+    // Configure HTTP bearer authorization: bearerAuth
+    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -658,6 +704,10 @@ Create a new Applied Product Service for an Order Line
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+    // Configure HTTP bearer authorization: bearerAuth
+    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
@@ -712,6 +762,10 @@ Create a new Line for an Order
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+    // Configure HTTP bearer authorization: bearerAuth
+    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -763,6 +817,10 @@ Get a list of Notes for an Order
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+    // Configure HTTP bearer authorization: bearerAuth
+    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -811,6 +869,10 @@ Delete a Note for an Order
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+    // Configure HTTP bearer authorization: bearerAuth
+    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
@@ -863,6 +925,10 @@ Get info about a Note for an Order
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+    // Configure HTTP bearer authorization: bearerAuth
+    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -913,6 +979,10 @@ Update a Note for an Order
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+    // Configure HTTP bearer authorization: bearerAuth
+    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
@@ -967,6 +1037,10 @@ Create a new Note for an Order
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+    // Configure HTTP bearer authorization: bearerAuth
+    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -1018,6 +1092,10 @@ Get a list of Packages for an Order
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+    // Configure HTTP bearer authorization: bearerAuth
+    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -1066,6 +1144,10 @@ Get info about a Package for an Order
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+    // Configure HTTP bearer authorization: bearerAuth
+    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
@@ -1118,6 +1200,10 @@ Get a list of Payments for an Order
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+    // Configure HTTP bearer authorization: bearerAuth
+    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -1157,57 +1243,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **ordersOrderIdPaymentsOrderPaymentIdDelete**
-> object ordersOrderIdPaymentsOrderPaymentIdDelete($orderId, $orderPaymentId)
-
-Delete a Payment for an Order
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-$apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$orderId = 56; // int | Order Id
-$orderPaymentId = 56; // int | Order Payment Id
-
-try {
-    $result = $apiInstance->ordersOrderIdPaymentsOrderPaymentIdDelete($orderId, $orderPaymentId);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling OrdersApi->ordersOrderIdPaymentsOrderPaymentIdDelete: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **orderId** | **int**| Order Id |
- **orderPaymentId** | **int**| Order Payment Id |
-
-### Return type
-
-**object**
-
-### Authorization
-
-[bearerAuth](../../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
 # **ordersOrderIdPaymentsOrderPaymentIdGet**
 > \HappyCog\OsborneApi\ErpService\Model\OrderPayment ordersOrderIdPaymentsOrderPaymentIdGet($orderId, $orderPaymentId)
 
@@ -1217,6 +1252,10 @@ Get info about a Payment for an Order
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+    // Configure HTTP bearer authorization: bearerAuth
+    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
@@ -1259,59 +1298,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **ordersOrderIdPaymentsOrderPaymentIdPut**
-> \HappyCog\OsborneApi\ErpService\Model\OrderPayment ordersOrderIdPaymentsOrderPaymentIdPut($orderId, $orderPaymentId, $body)
-
-Update a Payment for an Order
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-$apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$orderId = 56; // int | Order Id
-$orderPaymentId = 56; // int | Order Payment Id
-$body = new \HappyCog\OsborneApi\ErpService\Model\OrderPayment(); // \HappyCog\OsborneApi\ErpService\Model\OrderPayment | 
-
-try {
-    $result = $apiInstance->ordersOrderIdPaymentsOrderPaymentIdPut($orderId, $orderPaymentId, $body);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling OrdersApi->ordersOrderIdPaymentsOrderPaymentIdPut: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **orderId** | **int**| Order Id |
- **orderPaymentId** | **int**| Order Payment Id |
- **body** | [**\HappyCog\OsborneApi\ErpService\Model\OrderPayment**](../Model/OrderPayment.md)|  | [optional]
-
-### Return type
-
-[**\HappyCog\OsborneApi\ErpService\Model\OrderPayment**](../Model/OrderPayment.md)
-
-### Authorization
-
-[bearerAuth](../../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
 # **ordersOrderIdPaymentsPost**
 > \HappyCog\OsborneApi\ErpService\Model\OrderPayment ordersOrderIdPaymentsPost($orderId, $body)
 
@@ -1321,6 +1307,10 @@ Create a new Payment for an Order
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+    // Configure HTTP bearer authorization: bearerAuth
+    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
@@ -1373,6 +1363,10 @@ Update an Order
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+    // Configure HTTP bearer authorization: bearerAuth
+    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -1423,6 +1417,10 @@ Delete an Applied Order Service for an Order
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+    // Configure HTTP bearer authorization: bearerAuth
+    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
@@ -1475,6 +1473,10 @@ Get info about an Applied Order Service for an Order
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+    // Configure HTTP bearer authorization: bearerAuth
+    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -1525,6 +1527,10 @@ Update an Applied Order Service for an Order
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+    // Configure HTTP bearer authorization: bearerAuth
+    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
@@ -1579,6 +1585,10 @@ Get a list of Applied Order Services for an Order
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+    // Configure HTTP bearer authorization: bearerAuth
+    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -1627,6 +1637,10 @@ Create a new Applied Order Service for an Order
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+    // Configure HTTP bearer authorization: bearerAuth
+    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(
@@ -1678,6 +1692,10 @@ Create a new Order
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+    // Configure HTTP bearer authorization: bearerAuth
+    $config = HappyCog\OsborneApi\ErpService\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new HappyCog\OsborneApi\ErpService\Api\OrdersApi(

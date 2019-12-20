@@ -3,15 +3,17 @@
 namespace HappyCog\Tests\Integration;
 
 use HappyCog\Tests\TestCase;
-use HappyCog\Tests\Traits\SwaggerServiceApi;
+use HappyCog\Tests\Traits\IntegrationServiceApi;
 use HappyCog\OsborneApi\Resources\Base\Collection;
 use HappyCog\OsborneApi\ErpService\Model\ShippingCarrier;
 
 class ShippingCarrierModelTest extends TestCase
 {
-    use SwaggerServiceApi;
+    use IntegrationServiceApi;
 
-    /** @test */
+    /**
+     * @test
+     */
     public function serviceApiFindsAllShippingCarriers()
     {
         $shippingCarriers = ShippingCarrier::all();
@@ -21,12 +23,17 @@ class ShippingCarrierModelTest extends TestCase
         foreach ($shippingCarriers as $shippingCarrier) {
             $this->assertInstanceOf(ShippingCarrier::class, $shippingCarrier);
         }
+
+        return $shippingCarriers->first()->id;
     }
 
-    /** @test */
-    public function serviceApiFindsASpecificShippingCarrier()
+    /**
+     * @test
+     * @depends serviceApiFindsAllShippingCarriers
+     */
+    public function serviceApiFindsASpecificShippingCarrier($shippingCarrierId)
     {
-        $shippingCarrier = ShippingCarrier::find(1);
+        $shippingCarrier = ShippingCarrier::find($shippingCarrierId);
 
         $this->assertInstanceOf(ShippingCarrier::class, $shippingCarrier);
     }

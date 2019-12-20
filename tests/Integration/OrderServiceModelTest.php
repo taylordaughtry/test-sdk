@@ -3,14 +3,14 @@
 namespace HappyCog\Tests\Integration;
 
 use HappyCog\Tests\TestCase;
-use HappyCog\Tests\Traits\SwaggerServiceApi;
+use HappyCog\Tests\Traits\IntegrationServiceApi;
 use HappyCog\OsborneApi\ErpService\Model\OrderService;
 use HappyCog\OsborneApi\Resources\Base\Collection;
 use HappyCog\OsborneApi\ErpService\Model\Disclaimer;
 
 class OrderServiceModelTest extends TestCase
 {
-    use SwaggerServiceApi;
+    use IntegrationServiceApi;
 
     /** @test */
     public function serviceApiFindsAllOrderServices()
@@ -22,20 +22,28 @@ class OrderServiceModelTest extends TestCase
         foreach ($orderServices as $orderService) {
             $this->assertInstanceOf(OrderService::class, $orderService);
         }
+
+        return $orderServices->first()->id;
     }
 
-    /** @test */
-    public function serviceApiFindsASpecificOrderService()
+    /**
+     * @test
+     * @depends serviceApiFindsAllOrderServices
+     */
+    public function serviceApiFindsASpecificOrderService($orderServiceId)
     {
-        $orderService = OrderService::find(1);
+        $orderService = OrderService::find($orderServiceId);
 
         $this->assertInstanceOf(OrderService::class, $orderService);
     }
 
-    /** @test */
-    public function serviceApiFindsOrderServiceDisclaimers()
+    /**
+     * @test
+     * @depends serviceApiFindsAllOrderServices
+     */
+    public function serviceApiFindsOrderServiceDisclaimers($orderServiceId)
     {
-        $disclaimers = OrderService::find(1)->disclaimers;
+        $disclaimers = OrderService::find($orderServiceId)->disclaimers;
 
         $this->assertInstanceOf(Collection::class, $disclaimers);
 

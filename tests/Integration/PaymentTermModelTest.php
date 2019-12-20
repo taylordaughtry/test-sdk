@@ -3,13 +3,13 @@
 namespace HappyCog\Tests\Integration;
 
 use HappyCog\Tests\TestCase;
-use HappyCog\Tests\Traits\SwaggerServiceApi;
+use HappyCog\Tests\Traits\IntegrationServiceApi;
 use HappyCog\OsborneApi\Resources\Base\Collection;
 use HappyCog\OsborneApi\ErpService\Model\PaymentTerm;
 
 class PaymentTermModelTest extends TestCase
 {
-    use SwaggerServiceApi;
+    use IntegrationServiceApi;
 
     /** @test */
     public function serviceApiFindsAllPaymentTerms()
@@ -21,12 +21,17 @@ class PaymentTermModelTest extends TestCase
         foreach ($paymentTerms as $paymentTerm) {
             $this->assertInstanceOf(PaymentTerm::class, $paymentTerm);
         }
+
+        return $paymentTerms->first()->id;
     }
 
-    /** @test */
-    public function serviceApiFindsASpecificPaymentTerm()
+    /**
+     * @test
+     * @depends serviceApiFindsAllPaymentTerms
+     */
+    public function serviceApiFindsASpecificPaymentTerm($paymentTermId)
     {
-        $paymentTerm = PaymentTerm::find(1);
+        $paymentTerm = PaymentTerm::find($paymentTermId);
 
         $this->assertInstanceOf(PaymentTerm::class, $paymentTerm);
     }

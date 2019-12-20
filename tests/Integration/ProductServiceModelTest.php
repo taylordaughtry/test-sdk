@@ -3,7 +3,7 @@
 namespace HappyCog\Tests\Integration;
 
 use HappyCog\Tests\TestCase;
-use HappyCog\Tests\Traits\SwaggerServiceApi;
+use HappyCog\Tests\Traits\IntegrationServiceApi;
 use HappyCog\OsborneApi\ErpService\Model\Material;
 use HappyCog\OsborneApi\Resources\Base\Collection;
 use HappyCog\OsborneApi\ErpService\Model\Disclaimer;
@@ -11,7 +11,7 @@ use HappyCog\OsborneApi\ErpService\Model\ProductService;
 
 class ProductServiceModelTest extends TestCase
 {
-    use SwaggerServiceApi;
+    use IntegrationServiceApi;
 
     /** @test */
     public function serviceApiFindsAllProductServices()
@@ -23,20 +23,28 @@ class ProductServiceModelTest extends TestCase
         foreach ($productServices as $productService) {
             $this->assertInstanceOf(ProductService::class, $productService);
         }
+
+        return $productServices->first()->id;
     }
 
-    /** @test */
-    public function serviceApiFindsASpecificProductService()
+    /**
+     * @test
+     * @depends serviceApiFindsAllProductServices
+     */
+    public function serviceApiFindsASpecificProductService($productServiceId)
     {
-        $productService = ProductService::find(1);
+        $productService = ProductService::find($productServiceId);
 
         $this->assertInstanceOf(ProductService::class, $productService);
     }
 
-    /** @test */
-    public function serviceApiFindsProductServiceDisclaimers()
+    /**
+     * @test
+     * @depends serviceApiFindsAllProductServices
+     */
+    public function serviceApiFindsProductServiceDisclaimers($productServiceId)
     {
-        $disclaimers = ProductService::find(1)->disclaimers;
+        $disclaimers = ProductService::find($productServiceId)->disclaimers;
 
         $this->assertInstanceOf(Collection::class, $disclaimers);
 
@@ -45,10 +53,13 @@ class ProductServiceModelTest extends TestCase
         }
     }
 
-    /** @test */
-    public function serviceApiFindsProductServiceMaterials()
+    /**
+     * @test
+     * @depends serviceApiFindsAllProductServices
+     */
+    public function serviceApiFindsProductServiceMaterials($productServiceId)
     {
-        $materials = ProductService::find(1)->materials;
+        $materials = ProductService::find($productServiceId)->materials;
 
         $this->assertInstanceOf(Collection::class, $materials);
 

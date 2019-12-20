@@ -3,7 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | 
 **promotionId** | **int** |  | 
 **shippingMethodId** | **int** |  | 
 

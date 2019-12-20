@@ -54,6 +54,16 @@ class Factory
     }
 
     /**
+     * Get the configuration to use when connecting to the ERP Service
+     *
+     * @return HappyCog\OsborneApi\ErpService\Configuration
+     */
+    public static function getConfig()
+    {
+        return static::$config;
+    }
+
+    /**
      * Set the guzzle client to use when connecting to the ERP Service
      *
      * @param GuzzleHttp\ClientInterface $httpClient
@@ -61,5 +71,15 @@ class Factory
     public static function setHttpClient(ClientInterface $httpClient)
     {
         static::$httpClient = $httpClient;
+    }
+
+    /**
+     * Get the guzzle client to use when connecting to the ERP Service
+     *
+     * @return GuzzleHttp\ClientInterface
+     */
+    public static function getHttpClient()
+    {
+        return static::$httpClient;
     }
 }

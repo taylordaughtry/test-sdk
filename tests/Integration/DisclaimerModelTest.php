@@ -3,13 +3,13 @@
 namespace HappyCog\Tests\Integration;
 
 use HappyCog\Tests\TestCase;
-use HappyCog\Tests\Traits\SwaggerServiceApi;
+use HappyCog\Tests\Traits\IntegrationServiceApi;
 use HappyCog\OsborneApi\Resources\Base\Collection;
 use HappyCog\OsborneApi\ErpService\Model\Disclaimer;
 
 class DisclaimerModelTest extends TestCase
 {
-    use SwaggerServiceApi;
+    use IntegrationServiceApi;
 
     /** @test */
     public function serviceApiFindsAllDisclaimers()
@@ -21,12 +21,17 @@ class DisclaimerModelTest extends TestCase
         foreach ($disclaimers as $disclaimer) {
             $this->assertInstanceOf(Disclaimer::class, $disclaimer);
         }
+
+        return $disclaimers->first()->id;
     }
 
-    /** @test */
-    public function serviceApiFindsASpecificDisclaimer()
+    /**
+     * @test
+     * @depends serviceApiFindsAllDisclaimers
+     */
+    public function serviceApiFindsASpecificDisclaimer($disclaimerId)
     {
-        $disclaimer = Disclaimer::find(1);
+        $disclaimer = Disclaimer::find($disclaimerId);
 
         $this->assertInstanceOf(Disclaimer::class, $disclaimer);
     }

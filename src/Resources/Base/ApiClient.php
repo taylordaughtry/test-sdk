@@ -2,6 +2,7 @@
 
 namespace HappyCog\OsborneApi\Resources\Base;
 
+use HappyCog\OsborneApi\ErpService\ApiException;
 use HappyCog\OsborneApi\Resources\Base\ApiClient\Operations;
 use HappyCog\OsborneApi\Resources\Exceptions\BadResourceMethodException;
 

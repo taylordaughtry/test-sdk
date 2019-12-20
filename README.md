@@ -183,7 +183,7 @@ The integration tests will by default rely on [SwaggerHub Auto Mocking](https://
 For better performance, it is recommended that you spin up a docker instance of [danielgtaylor/apisprout](https://github.com/danielgtaylor/apisprout) by running the following command ( using the current api spec version ):
 
 ```bash
-docker run -d -p 8000:8000 danielgtaylor/apisprout https://api.swaggerhub.com/apis/jordan-hoff/osborne_erp_service_api/1.0.6
+docker run --env SPROUT_VALIDATE_REQUEST=1 -d -p 8000:8000 danielgtaylor/apisprout https://api.swaggerhub.com/apis/jordan-hoff/osborne_erp_service_api/1.0.6
 ```
 
 Then, you can create a `.env.testing` file that contains the following:

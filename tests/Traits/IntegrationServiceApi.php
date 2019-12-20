@@ -8,7 +8,7 @@ use GuzzleRetry\GuzzleRetryMiddleware;
 use HappyCog\OsborneApi\ErpService\Configuration;
 use HappyCog\OsborneApi\Resources\Base\ApiClient\Factory;
 
-trait SwaggerServiceApi
+trait IntegrationServiceApi
 {
     /**
      * This method is called before each test.
@@ -19,10 +19,6 @@ trait SwaggerServiceApi
     {
         parent::setUp();
 
-        Factory::setHttpClient(new Client(['headers' => [
-            'Authorization' => 'Bearer ' . env('MOCK_AUTH_TOKEN', md5(rand())),
-        ]]));
-
         $specUrl = env(
             'MOCK_SPEC_URL',
             'https://virtserver.swaggerhub.com/jordan-hoff/osborne_erp_service_api/' . Configuration::$specVersion
@@ -32,6 +28,10 @@ trait SwaggerServiceApi
 
         $config = new Configuration();
         $config->setHost($server . $path);
+
+        // TODO figure this out
+        // $config->setApiKeyPrefix('Authorization', 'Bearer');
+        // $config->setApiKey('Authorization', env('MOCK_AUTH_TOKEN', md5(rand())));
 
         Factory::setConfig($config);
 
@@ -50,7 +50,10 @@ trait SwaggerServiceApi
             }
         ]));
 
-        $client = new Client(['handler' => $stack]);
+        $client = new Client([
+            'handler' => $stack,
+            'verify' => false,
+        ]);
 
         Factory::setHttpClient($client);
     }

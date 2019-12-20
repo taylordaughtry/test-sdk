@@ -3,13 +3,13 @@
 namespace HappyCog\Tests\Integration;
 
 use HappyCog\Tests\TestCase;
-use HappyCog\Tests\Traits\SwaggerServiceApi;
+use HappyCog\Tests\Traits\IntegrationServiceApi;
 use HappyCog\OsborneApi\Resources\Base\Collection;
 use HappyCog\OsborneApi\ErpService\Model\BuyingGroup;
 
 class BuyingGroupModelTest extends TestCase
 {
-    use SwaggerServiceApi;
+    use IntegrationServiceApi;
 
     /** @test */
     public function serviceApiFindsAllBuyingGroups()
@@ -21,12 +21,17 @@ class BuyingGroupModelTest extends TestCase
         foreach ($buyingGroups as $buyingGroup) {
             $this->assertInstanceOf(BuyingGroup::class, $buyingGroup);
         }
+
+        return $buyingGroups->first()->id;
     }
 
-    /** @test */
-    public function serviceApiFindsASpecificBuyingGroup()
+    /**
+     * @test
+     * @depends serviceApiFindsAllBuyingGroups
+     */
+    public function serviceApiFindsASpecificBuyingGroup($buyingGroupId)
     {
-        $buyingGroup = BuyingGroup::find(1);
+        $buyingGroup = BuyingGroup::find($buyingGroupId);
 
         $this->assertInstanceOf(BuyingGroup::class, $buyingGroup);
     }

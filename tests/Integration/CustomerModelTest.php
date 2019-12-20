@@ -3,7 +3,7 @@
 namespace HappyCog\Tests\Integration;
 
 use HappyCog\Tests\TestCase;
-use HappyCog\Tests\Traits\SwaggerServiceApi;
+use HappyCog\Tests\Traits\IntegrationServiceApi;
 use HappyCog\OsborneApi\ErpService\Model\Address;
 use HappyCog\OsborneApi\ErpService\Model\Customer;
 use HappyCog\OsborneApi\Resources\Base\Collection;
@@ -18,9 +18,11 @@ use HappyCog\OsborneApi\ErpService\Model\CustomerProductPrice;
  */
 class CustomerModelTest extends TestCase
 {
-    use SwaggerServiceApi;
+    use IntegrationServiceApi;
 
-    /** @test */
+    /**
+     * @test
+     */
     public function serviceApiFindsAllCustomers()
     {
         $customers = Customer::all();
@@ -32,52 +34,57 @@ class CustomerModelTest extends TestCase
         }
     }
 
-    /** @test */
+    /**
+     * @test
+     */
     public function serviceApiCreatesCustomers()
     {
         $customer = Customer::create([
             'firstName' => 'John',
             'lastName' => 'Doe',
-            'email' => 'jdoe@example.com',
-            'emailOptIn' => true,
-            'billingAddressId' => 12,
-            'shippingCarrierId' => 23,
-            'buyingGroupId' => 34,
-            'freightTermsId' => 45,
+            'email' => 'johndoe@example.com',
         ]);
 
         $this->assertInstanceOf(Customer::class, $customer);
+
+        return $customer->id;
     }
 
-    /** @test */
-    public function serviceApiFindsASpecificCustomer()
+    /**
+     * @test
+     * @depends serviceApiCreatesCustomers
+     */
+    public function serviceApiFindsASpecificCustomer($customerId)
     {
-        $customer = Customer::find(1);
+        $customer = Customer::find($customerId);
 
         $this->assertInstanceOf(Customer::class, $customer);
     }
 
-    /** @test */
-    public function serviceApiUpdatesCustomers()
+    /**
+     * @test
+     * @depends serviceApiCreatesCustomers
+     */
+    public function serviceApiUpdatesCustomers($customerId)
     {
-        $customer = Customer::find(1)->update([
-            'firstName' => 'John',
+        $customer = Customer::find($customerId)->update([
+            'firstName' => 'Jane',
             'lastName' => 'Doe',
-            'email' => 'jdoe@example.com',
-            'emailOptIn' => true,
-            'billingAddressId' => 12,
-            'shippingCarrierId' => 23,
-            'buyingGroupId' => 34,
-            'freightTermsId' => 45,
+            'email' => 'janedoe@example.com',
         ]);
 
         $this->assertInstanceOf(Customer::class, $customer);
+
+        $this->assertEquals('janedoe@example.com', $customer->email);
     }
 
-    /** @test */
-    public function serviceApiFindsCustomerBillingAddresses()
+    /**
+     * @test
+     * @depends serviceApiCreatesCustomers
+     */
+    public function serviceApiFindsCustomerBillingAddresses($customerId)
     {
-        $addresses = Customer::find(1)->billingAddresses;
+        $addresses = Customer::find($customerId)->billingAddresses;
 
         $this->assertInstanceOf(Collection::class, $addresses);
 
@@ -86,10 +93,13 @@ class CustomerModelTest extends TestCase
         }
     }
 
-    /** @test */
-    public function serviceApiFindsCustomerNotes()
+    /**
+     * @test
+     * @depends serviceApiCreatesCustomers
+     */
+    public function serviceApiFindsCustomerNotes($customerId)
     {
-        $notes = Customer::find(1)->notes;
+        $notes = Customer::find($customerId)->notes;
 
         $this->assertInstanceOf(Collection::class, $notes);
 
@@ -98,10 +108,13 @@ class CustomerModelTest extends TestCase
         }
     }
 
-    /** @test */
-    public function serviceApiFindsCustomerOrderServices()
+    /**
+     * @test
+     * @depends serviceApiCreatesCustomers
+     */
+    public function serviceApiFindsCustomerOrderServices($customerId)
     {
-        $orderServices = Customer::find(1)->orderServices;
+        $orderServices = Customer::find($customerId)->orderServices;
 
         $this->assertInstanceOf(Collection::class, $orderServices);
 
@@ -110,10 +123,13 @@ class CustomerModelTest extends TestCase
         }
     }
 
-    /** @test */
-    public function serviceApiFindsCustomerPaymentTerms()
+    /**
+     * @test
+     * @depends serviceApiCreatesCustomers
+     */
+    public function serviceApiFindsCustomerPaymentTerms($customerId)
     {
-        $paymentTerms = Customer::find(1)->paymentTerms;
+        $paymentTerms = Customer::find($customerId)->paymentTerms;
 
         $this->assertInstanceOf(Collection::class, $paymentTerms);
 
@@ -122,10 +138,13 @@ class CustomerModelTest extends TestCase
         }
     }
 
-    /** @test */
-    public function serviceApiFindsCustomerProductPrices()
+    /**
+     * @test
+     * @depends serviceApiCreatesCustomers
+     */
+    public function serviceApiFindsCustomerProductPrices($customerId)
     {
-        $productPrices = Customer::find(1)->productPrices;
+        $productPrices = Customer::find($customerId)->productPrices;
 
         $this->assertInstanceOf(Collection::class, $productPrices);
 
@@ -134,10 +153,13 @@ class CustomerModelTest extends TestCase
         }
     }
 
-    /** @test */
-    public function serviceApiFindsCustomerPromotions()
+    /**
+     * @test
+     * @depends serviceApiCreatesCustomers
+     */
+    public function serviceApiFindsCustomerPromotions($customerId)
     {
-        $promotions = Customer::find(1)->promotions;
+        $promotions = Customer::find($customerId)->promotions;
 
         $this->assertInstanceOf(Collection::class, $promotions);
 
@@ -146,10 +168,13 @@ class CustomerModelTest extends TestCase
         }
     }
 
-    /** @test */
-    public function serviceApiFindsCustomerShippingAddresses()
+    /**
+     * @test
+     * @depends serviceApiCreatesCustomers
+     */
+    public function serviceApiFindsCustomerShippingAddresses($customerId)
     {
-        $addresses = Customer::find(1)->shippingAddresses;
+        $addresses = Customer::find($customerId)->shippingAddresses;
 
         $this->assertInstanceOf(Collection::class, $addresses);
 
