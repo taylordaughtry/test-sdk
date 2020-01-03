@@ -14,7 +14,7 @@ class AuthenticationTest extends TestCase
     /** @test */
     public function serviceApiReturns401WithoutAccessToken()
     {
-        $config = Factory::getConfig();
+        // $config = Factory::getConfig();
 
         $product = Product::find(1);
 

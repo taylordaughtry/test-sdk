@@ -21,7 +21,7 @@ trait IntegrationServiceApi
 
         $specUrl = env(
             'MOCK_SPEC_URL',
-            'https://virtserver.swaggerhub.com/jordan-hoff/osborne_erp_service_api/' . Configuration::$specVersion
+            'http://osborne-mock.test.vmgdev.com/api'
         );
 
         list($server, $path) = $this->parseSpecUrl($specUrl);
