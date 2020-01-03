@@ -15,9 +15,12 @@ jobs:
 
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress --no-suggest
+      
+    - name: PHPUnit
+      run: php artisan test:phpunit --without-tty
 
-    # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
-    # Docs: https://getcomposer.org/doc/articles/scripts.md
-
-    - name: Run test suite
-      run: php artisan test --no-tty
+    - name: PHP CS Fixer
+      run: php artisan test:php-cs-fixer --without-tty
+      
+    - name: PHP Mess Detector
+      run: php artisan test:phpmd --without-tty
