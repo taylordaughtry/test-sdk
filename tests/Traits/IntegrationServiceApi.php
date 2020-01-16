@@ -29,9 +29,7 @@ trait IntegrationServiceApi
         $config = new Configuration();
         $config->setHost($server . $path);
 
-        // TODO figure this out
-        // $config->setApiKeyPrefix('Authorization', 'Bearer');
-        // $config->setApiKey('Authorization', env('MOCK_AUTH_TOKEN', md5(rand())));
+        $config->setAccessToken(env('MOCK_AUTH_TOKEN', md5(rand())));
 
         Factory::setConfig($config);
 
