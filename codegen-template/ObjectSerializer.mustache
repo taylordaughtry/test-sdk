@@ -30,6 +30,20 @@ namespace {{invokerPackage}};
 class ObjectSerializer
 {
     /**
+     * Default time format when reading dates
+     *
+     * @type string
+     */
+    public static $timeFormat = \DateTime::ATOM;
+
+    /**
+     * Default timezone to use when converting dates
+     *
+     * @type string
+     */
+    public static $timezone = 'UTC';
+
+    /**
      * Serialize data
      *
      * @param mixed  $data   the data to serialize
@@ -43,7 +57,7 @@ class ObjectSerializer
         if (is_scalar($data) || null === $data) {
             return $data;
         } elseif ($data instanceof \DateTime) {
-            return ($format === 'date') ? $data->format('Y-m-d') : $data->format(\DateTime::ATOM);
+            return ($format === 'date') ? $data->format('Y-m-d') : $data->format(static::$timeFormat);
         } elseif (is_iterable($data)) {
             foreach ($data as $property => $value) {
                 $data[$property] = self::sanitizeForSerialization($value);
@@ -170,7 +184,7 @@ class ObjectSerializer
     public static function toString($value)
     {
         if ($value instanceof \DateTime) { // datetime in ISO8601 format
-            return $value->format(\DateTime::ATOM);
+            return $value->format(static::$timeFormat);
         } else {
             return $value;
         }
@@ -253,7 +267,7 @@ class ObjectSerializer
             // be interpreted as a missing field/value. Let's handle
             // this graceful.
             if (!empty($data)) {
-                return new \DateTime($data);
+                return new \DateTime($data, new \DateTimeZone(static::$timezone));
             } else {
                 return null;
             }
