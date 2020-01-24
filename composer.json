@@ -1,5 +1,5 @@
 {
-    "name": "happycog/osborne-api-sdk",
+    "name": "taylordaughtry/test-sdk",
     "description": "PHP SDK for the Osborne Wood ERP API",
     "type": "library",
     "require": {
